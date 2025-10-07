@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import Testimonials from "@/components/Testimonial"
 
 // Button component
@@ -133,12 +134,16 @@ export default function AboutUsPage() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
-                <Button className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-medium tracking-wider border border-blue-400/30 shadow-lg shadow-blue-500/25">
-                  START YOUR AI TRANSFORMATION
-                </Button>
-                <Button className="bg-white text-blue-600 hover:bg-blue-50 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-medium tracking-wider border-2 border-blue-500 hover:border-blue-400 shadow-lg shadow-blue-500/25">
-                  VIEW OUR SERVICES
-                </Button>
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-medium tracking-wider border border-blue-400/30 shadow-lg shadow-blue-500/25 w-full">
+                    START YOUR AI TRANSFORMATION
+                  </Button>
+                </Link>
+                <Link href="/services" className="w-full sm:w-auto">
+                  <Button className="bg-white text-blue-600 hover:bg-blue-50 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-medium tracking-wider border-2 border-blue-500 hover:border-blue-400 shadow-lg shadow-blue-500/25 w-full">
+                    VIEW OUR SERVICES
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
