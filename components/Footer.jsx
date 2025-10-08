@@ -112,30 +112,31 @@ export default function Footer() {
                 <div className="flex items-start space-x-3">
                   <MapPin size={16} className="text-blue-400 mt-1 flex-shrink-0" />
                   <div className="text-sm text-gray-300">
-                    <p className="font-medium text-white">Global Offices</p>
-                    <p>Mumbai, India</p>
-                    <p>Pune, India</p>
-                    <p>United States</p>
+                    <p className="font-medium text-white">Our Office</p>
+                    <p>402, Brahans Business Park,</p>
+                    <p>16A Mahal Industrial Estate,</p>
+                    <p>Shantinagar, Off Mahakali Caves Road,</p>
+                    <p>Andheri East, Mumbai 400093</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3">
                   <Mail size={16} className="text-blue-400 flex-shrink-0" />
                   <a
-                    href="mailto:contact@b2winfotech.com"
+                    href="mailto:b2winfotek@gmail.com"
                     className="text-sm text-gray-300 hover:text-blue-400 transition-colors duration-200"
                   >
-                    contact@b2winfotech.com
+                    b2winfotek@gmail.com
                   </a>
                 </div>
 
                 <div className="flex items-center space-x-3">
                   <Phone size={16} className="text-blue-400 flex-shrink-0" />
                   <a
-                    href="tel:+1-555-B2W-TECH"
+                    href="tel:+917798001001"
                     className="text-sm text-gray-300 hover:text-blue-400 transition-colors duration-200"
                   >
-                    +1 (555) B2W-TECH
+                    +91 77980 01001
                   </a>
                 </div>
               </div>
