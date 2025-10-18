@@ -89,19 +89,30 @@ export default function ChatWidget() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const messagesEndRef = useRef(null);
   const { position, handleMouseDown, isDragging } = useDraggable();
 
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Auto-scroll to bottom of messages
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && isMounted) {
       scrollToBottom();
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, isMounted]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Don't render until mounted to prevent hydration issues
+  if (!isMounted) {
+    return null;
+  }
 
   // Using a free OpenRouter model - you can get a free API key at openrouter.ai
   const OPENROUTER_API_KEY = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
@@ -232,9 +243,9 @@ Always end responses by asking how we can specifically help with their IT or bus
 
   return (
     <div 
-      className={`fixed z-50`}
+      className={`fixed z-[80]`}
       style={{
-        bottom: '24px',
+        bottom: '96px',
         right: '24px',
         transform: `translate(${position.x}px, ${position.y}px)`,
         cursor: isDragging ? 'grabbing' : 'default'
@@ -244,6 +255,7 @@ Always end responses by asking how we can specifically help with their IT or bus
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
+          onMouseDown={handleMouseDown}
           className="w-14 h-14 rounded-full bg-black border border-blue-500/30 text-blue-400 flex items-center justify-center shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 relative backdrop-blur-xl"
           aria-label="Open chat"
         >
@@ -254,7 +266,7 @@ Always end responses by asking how we can specifically help with their IT or bus
 
       {/* Expanded chat window */}
       {isOpen && (
-        <div className="flex flex-col w-80 sm:w-96 h-[500px] bg-black/95 backdrop-blur-xl rounded-lg shadow-xl border border-blue-500/30 overflow-hidden relative">
+        <div className="flex flex-col w-80 sm:w-96 h-[500px] bg-black/95 backdrop-blur-xl rounded-lg shadow-xl border border-blue-500/30 overflow-hidden relative max-h-[90vh]">
           {/* Stars effect - simplified */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
             <div className="absolute inset-0 bg-blue-800/10"></div>
@@ -262,7 +274,7 @@ Always end responses by asking how we can specifically help with their IT or bus
           
           {/* Header */}
           <div 
-            className="bg-black/90 border-b border-blue-500/30 p-3 flex justify-between items-center cursor-move relative z-10"
+            className="bg-black/90 border-b border-blue-500/30 p-3 flex justify-between items-center cursor-move relative z-10 flex-shrink-0"
             onMouseDown={handleMouseDown}
           >
             <div className="flex items-center">

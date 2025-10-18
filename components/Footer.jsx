@@ -51,14 +51,17 @@ export default function Footer() {
               </h3>
               <ul className="space-y-3">
                 {[
-                  { name: "IT Outsourcing", href: "/services/it-outsourcing" },
-                  { name: "Custom Software Development", href: "/services/custom-software-development" },
-                  { name: "AI Strategy & Implementation", href: "/services/ai-strategy-implementation" },
-                  { name: "Web & Mobile Development", href: "/services/web-mobile-development" },
-                  { name: "MVP Development", href: "/services/mvp-development" },
-                  { name: "Staff Augmentation", href: "/services/staff-augmentation" },
-                  { name: "Legacy Modernization", href: "/services/legacy-modernization" },
-                  { name: "All Services", href: "/services" }
+                  { name: "Web Development", href: "/services/web-development" },
+                  { name: "Mobile App Development", href: "/services/mobile-application-development" },
+                  { name: "UI/UX Design", href: "/services/ui-ux-design-prototyping" },
+                  { name: "IT Staff Augmentation", href: "/services/it-staff-augmentation" },
+                  { name: "Software Consulting", href: "/services/software-consulting-product-engineering" },
+                  { name: "QA & Testing", href: "/services/qa-testing" },
+                  { name: "Cloud & DevOps", href: "/services/cloud-computing-devops" },
+                  { name: "AI & Chatbots", href: "/services/ai-chatbots" },
+                  { name: "Digital Marketing", href: "/services/digital-marketing-seo-sem" },
+                  { name: "Digital Transformation", href: "/services/digital-transformation" },
+                  { name: "Team Augmentation", href: "/services" }
                 ].map((service, index) => (
                   <li key={index}>
                     <Link 
@@ -145,10 +148,10 @@ export default function Footer() {
                 <p className="text-sm font-medium text-white">Follow Us</p>
                 <div className="flex space-x-3">
                   {[
-                    { icon: Linkedin, href: "#", label: "LinkedIn" },
+                    { icon: Linkedin, href: "https://www.linkedin.com/company/b2w-infotech", label: "LinkedIn" },
                     { icon: Twitter, href: "#", label: "Twitter" },
                     { icon: Github, href: "#", label: "GitHub" },
-                    { icon: Globe, href: "#", label: "Website" }
+                    { icon: Globe, href: "/", label: "Website" }
                   ].map((social, index) => (
                     <a
                       key={index}
@@ -197,7 +200,7 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
               <div className="text-sm text-gray-400">
-                <p>© 2024 B2W Infotech. All rights reserved.</p>
+                <p>© 2025 B2W Infotech. All rights reserved.</p>
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-400">

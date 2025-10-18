@@ -1,4 +1,5 @@
 import ChatWidget from "@/components/chatbot";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -120,6 +121,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ChatWidget />
+        <WhatsAppWidget />
         {children}
       </body>
     </html>
