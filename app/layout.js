@@ -61,10 +61,10 @@ export default function RootLayout({ children }) {
               "slogan": "Where Innovation Meets Execution",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "402, Brahans Business Park, 16A Mahal Industrial Estate, Shantinagar",
+                "streetAddress": "A-402, Polaris building, 4V6J+437, Gamdevi, Marol, Andheri East",
                 "addressLocality": "Mumbai",
                 "addressRegion": "Maharashtra",
-                "postalCode": "400093",
+                "postalCode": "400059",
                 "addressCountry": "India"
               },
               "contactPoint": {

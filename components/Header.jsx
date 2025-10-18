@@ -15,9 +15,11 @@ const Header = () => {
   const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false)
   const [activeServiceCategory, setActiveServiceCategory] = useState(null)
   const [activeIndustryCategory, setActiveIndustryCategory] = useState(null)
+  const [isTeamAugmentationHover, setIsTeamAugmentationHover] = useState(false)
   const [servicesHoverTimeout, setServicesHoverTimeout] = useState(null)
   const [industriesHoverTimeout, setIndustriesHoverTimeout] = useState(null)
   const [categoryHoverTimeout, setCategoryHoverTimeout] = useState(null)
+  const [teamAugmentationTimeout, setTeamAugmentationTimeout] = useState(null)
   const headerRef = useRef(null)
   const profileMenuRef = useRef(null)
   const servicesDropdownRef = useRef(null)
@@ -124,6 +126,58 @@ const Header = () => {
     { name: "Contact Us", path: "/contact" },
   ]
 
+  // Team Augmentation Services data
+  const teamAugmentationServices = [
+    {
+      name: "Java Developers",
+      description: "Experienced in building robust, scalable applications with Java, suitable for enterprise solutions, backend services, and more."
+    },
+    {
+      name: "PHP Developers",
+      description: "Experts in creating dynamic, data-driven websites and applications using PHP, including CMS integration, e-commerce platforms, and custom web solutions."
+    },
+    {
+      name: "Python Developers",
+      description: "Skilled in Python for backend development, data science, AI/ML models, automation, and web applications."
+    },
+    {
+      name: "ReactJS Developers",
+      description: "Frontend developers experienced in building dynamic, high-performance user interfaces with ReactJS, delivering smooth, fast, and scalable applications."
+    },
+    {
+      name: ".NET Developers",
+      description: "Proficient in developing enterprise-grade applications and solutions using the .NET framework, focusing on stability, performance, and scalability."
+    },
+    {
+      name: "UI/UX Designers",
+      description: "Our designers create intuitive, user-centered interfaces and experiences for web and mobile platforms, ensuring your users have the best possible experience."
+    },
+    {
+      name: "Frontend Developers",
+      description: "Skilled in HTML5, CSS3, JavaScript, and modern frameworks (React, Angular, Vue), our frontend developers craft seamless, responsive designs for desktop and mobile devices."
+    },
+    {
+      name: "NodeJS Developers",
+      description: "Experts in building fast, scalable, and real-time applications with NodeJS, often used for web applications, microservices, and APIs."
+    },
+    {
+      name: "Flutter Developers",
+      description: "Skilled in building cross-platform mobile apps with Flutter, ensuring high-quality user experiences for both iOS and Android from a single codebase."
+    },
+    {
+      name: "Angular Developers",
+      description: "Proficient in creating dynamic, enterprise-grade web applications using Angular, ensuring high performance, maintainability, and scalability."
+    },
+    {
+      name: "DevOps Engineers",
+      description: "We provide DevOps professionals who streamline the development pipeline, automate processes, and ensure continuous integration, continuous deployment (CI/CD), and cloud infrastructure management."
+    },
+    {
+      name: "iOS Developers",
+      description: "Experts in building high-performance iOS applications for iPhone and iPad, leveraging Swift and Objective-C to deliver smooth, intuitive mobile experiences."
+    }
+  ]
+
   // Close mobile menu on outside click and escape
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -138,6 +192,7 @@ const Header = () => {
           setActiveIndustryCategory(null)
         }
         if (isProfileMenuOpen) setIsProfileMenuOpen(false)
+        if (isTeamAugmentationHover) setIsTeamAugmentationHover(false)
       }
     }
 
@@ -190,8 +245,9 @@ const Header = () => {
       if (servicesHoverTimeout) clearTimeout(servicesHoverTimeout)
       if (industriesHoverTimeout) clearTimeout(industriesHoverTimeout)
       if (categoryHoverTimeout) clearTimeout(categoryHoverTimeout)
+      if (teamAugmentationTimeout) clearTimeout(teamAugmentationTimeout)
     }
-  }, [servicesHoverTimeout, industriesHoverTimeout, categoryHoverTimeout])
+  }, [servicesHoverTimeout, industriesHoverTimeout, categoryHoverTimeout, teamAugmentationTimeout])
 
   // Handle services dropdown hover with improved logic
   const handleServicesMouseEnter = () => {
@@ -256,6 +312,27 @@ const Header = () => {
     setActiveIndustryCategory(null)
   }
 
+  // Handle team augmentation hover
+  const handleTeamAugmentationMouseEnter = () => {
+    if (teamAugmentationTimeout) clearTimeout(teamAugmentationTimeout)
+    setIsTeamAugmentationHover(true)
+  }
+
+  const handleTeamAugmentationMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsTeamAugmentationHover(false)
+    }, 200)
+    setTeamAugmentationTimeout(timeout)
+  }
+
+  const handleTeamAugmentationSubmenuMouseEnter = () => {
+    if (teamAugmentationTimeout) clearTimeout(teamAugmentationTimeout)
+  }
+
+  const handleTeamAugmentationSubmenuMouseLeave = () => {
+    setIsTeamAugmentationHover(false)
+  }
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false)
@@ -264,6 +341,7 @@ const Header = () => {
     setIsProfileMenuOpen(false)
     setActiveServiceCategory(null)
     setActiveIndustryCategory(null)
+    setIsTeamAugmentationHover(false)
   }, [pathname])
 
   const toggleMobileMenu = () => {
@@ -275,6 +353,9 @@ const Header = () => {
     if (isIndustriesDropdownOpen) {
       setIsIndustriesDropdownOpen(false)
       setActiveIndustryCategory(null)
+    }
+    if (isTeamAugmentationHover) {
+      setIsTeamAugmentationHover(false)
     }
   }
 
@@ -518,14 +599,182 @@ const Header = () => {
                                   </div>
                                   
                                   <div className="grid grid-cols-4 divide-x divide-black h-16">
-                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
-                                      <Link
-                                        href="/services/ai-chatbots"
-                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
-                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center relative">
+                                      <span 
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium cursor-pointer"
+                                        onMouseEnter={handleTeamAugmentationMouseEnter}
+                                        onMouseLeave={handleTeamAugmentationMouseLeave}
                                       >
-                                        AI & Chatbots
-                                      </Link>
+                                        Team Augmentation Services
+                                      </span>
+                                      
+                                      {/* Team Augmentation Submenu */}
+                                      {isTeamAugmentationHover && (
+                                        <div 
+                                          className="absolute top-0 left-full ml-2 w-[600px] bg-white rounded-lg shadow-lg border border-gray-200 z-[70] p-4"
+                                          onMouseEnter={handleTeamAugmentationSubmenuMouseEnter}
+                                          onMouseLeave={handleTeamAugmentationSubmenuMouseLeave}
+                                        >
+                                          <h4 className="text-lg font-semibold text-gray-900 mb-4">Available Team Members</h4>
+                                          <div className="space-y-0">
+                                            {/* First row */}
+                                            <div className="grid grid-cols-4 divide-x divide-black h-12">
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/java-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  Java Developers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/php-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  PHP Developers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/python-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  Python Developers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/reactjs-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  ReactJS Developers
+                                                </Link>
+                                              </div>
+                                            </div>
+                                            
+                                            {/* Second row */}
+                                            <div className="grid grid-cols-4 divide-x divide-black h-12">
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/dotnet-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  .NET Developers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/ui-ux-designers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  UI/UX Designers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/frontend-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  Frontend Developers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/nodejs-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  NodeJS Developers
+                                                </Link>
+                                              </div>
+                                            </div>
+                                            
+                                            {/* Third row */}
+                                            <div className="grid grid-cols-4 divide-x divide-black h-12">
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/flutter-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  Flutter Developers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/angular-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  Angular Developers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/devops-engineers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  DevOps Engineers
+                                                </Link>
+                                              </div>
+                                              <div className="px-3 flex items-center">
+                                                <Link
+                                                  href="/services/ios-developers"
+                                                  className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                                  onClick={() => {
+                                                    setIsServicesDropdownOpen(false)
+                                                    setIsTeamAugmentationHover(false)
+                                                  }}
+                                                >
+                                                  iOS Developers
+                                                </Link>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )}
                                     </div>
                                     <div className="px-6 flex items-center">
                                       <Link
@@ -537,7 +786,13 @@ const Header = () => {
                                       </Link>
                                     </div>
                                     <div className="px-6 flex items-center">
-                                      {/* Empty cell */}
+                                      <Link
+                                        href="/services/ai-chatbots"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        AI & Chatbots
+                                      </Link>
                                     </div>
                                     <div className="px-6 flex items-center">
                                       {/* Empty cell */}

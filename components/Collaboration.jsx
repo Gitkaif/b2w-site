@@ -110,7 +110,7 @@ const Collaboration = () => {
                     <img
                       src="/images/logo.jpg"
                       alt="B2W Infotech Logo"
-                      className="w-full h-full object-cover rounded-full"
+                      className="w-17 h-17 object-cover rounded-full"
                     />
                   </div>
                 </div>

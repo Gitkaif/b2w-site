@@ -113,10 +113,9 @@ export default function Footer() {
                   <MapPin size={16} className="text-blue-400 mt-1 flex-shrink-0" />
                   <div className="text-sm text-gray-300">
                     <p className="font-medium text-white">Our Office</p>
-                    <p>402, Brahans Business Park,</p>
-                    <p>16A Mahal Industrial Estate,</p>
-                    <p>Shantinagar, Off Mahakali Caves Road,</p>
-                    <p>Andheri East, Mumbai 400093</p>
+                    <p>A-402, Polaris building,</p>
+                    <p>4V6J+437, Gamdevi, Marol,</p>
+                    <p>Andheri East, Mumbai, Maharashtra 400059</p>
                   </div>
                 </div>
 

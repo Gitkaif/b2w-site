@@ -268,7 +268,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="text-black font-semibold mb-1 text-sm sm:text-base">Corporate Headquarters</h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    402, Brahans Business Park, 16A Mahal Industrial Estate, Shantinagar, Off Mahakali Caves Road, Andheri East, Mumbai 400093
+                    A-402, Polaris building, 4V6J+437, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600">Global AI development center & innovation hub</p>
                 </div>
