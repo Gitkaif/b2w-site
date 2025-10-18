@@ -73,7 +73,7 @@ export default function ServiceDetailPage() {
       {/* Features Section */}
       <section
         className="relative z-10 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
-        style={{ backgroundColor: "#EFF9F0" }}
+        style={{ backgroundColor: "#ecf1f2" }}
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -155,7 +155,7 @@ export default function ServiceDetailPage() {
       {relatedServices.length > 0 && (
         <section
           className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
-          style={{ backgroundColor: "#EFF9F0" }}
+          style={{ backgroundColor: "#ecf1f2" }}
         >
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
