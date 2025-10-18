@@ -88,46 +88,52 @@ export default function B2WServicesWithStats() {
 
   const services = [
     {
-      title: "AI-Powered Development",
-      icon: Cpu,
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      iconColor: "purple",
-      description: "Revolutionary AI-driven code generation, automated testing frameworks, and intelligent development processes for faster delivery."
-    },
-    {
-      title: "Full-Stack Solutions",
+      title: "Web Development",
       icon: Code,
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      iconColor: "pink",
-      description: "End-to-end web and mobile applications with modern frameworks, cloud integration, and scalable architecture solutions."
+      iconColor: "blue",
+      description: "Custom web applications built with modern technologies for exceptional user experiences and business growth.",
+      link: "/services/web-development"
     },
     {
-      title: "Digital Transformation",
+      title: "Mobile Application Development",
+      icon: Cpu,
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      iconColor: "cyan",
+      description: "Native and cross-platform mobile apps that deliver exceptional user experiences across all devices.",
+      link: "/services/mobile-application-development"
+    },
+    {
+      title: "UI/UX Design & Prototyping",
       icon: Zap,
-      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       iconColor: "purple",
-      description: "Comprehensive modernization with AI integration, intelligent automation, and predictive analytics for business optimization."
+      description: "User-centered design solutions that create intuitive, engaging digital experiences that drive conversions.",
+      link: "/services/ui-ux-design-prototyping"
     },
     {
-      title: "Dedicated Development Teams",
+      title: "IT Staff Augmentation",
       icon: Users,
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      iconColor: "pink",
-      description: "On-demand software experts available within 1 hour with risk-free trials and dedicated project management support."
+      iconColor: "green",
+      description: "Scale your development capacity instantly with pre-vetted IT professionals and flexible engagement models.",
+      link: "/services/it-staff-augmentation"
     },
     {
-      title: "AI/ML Integration Services",
+      title: "Cloud Computing & DevOps",
       icon: TrendingUp,
-      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      iconColor: "purple",
-      description: "Custom AI models, machine learning solutions, and intelligent automation to optimize your business processes."
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      iconColor: "blue",
+      description: "Scalable cloud infrastructure and DevOps practices for reliable, high-performance applications.",
+      link: "/services/cloud-computing-devops"
     },
     {
-      title: "Enterprise Security & Support",
+      title: "AI & Chatbots",
       icon: Shield,
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      iconColor: "pink",
-      description: "24/7 technical support with enterprise-grade security, IP protection, and comprehensive managed services."
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      iconColor: "purple",
+      description: "Intelligent AI solutions and conversational chatbots that enhance user experiences and automate customer interactions.",
+      link: "/services/ai-chatbots"
     }
   ];
 
@@ -220,7 +226,7 @@ export default function B2WServicesWithStats() {
             {services.map((service, index) => (
               <Link
                 key={service.title}
-                href="/services"
+                href={service.link}
                 className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-lg border border-gray-200 transition-all duration-500 hover:shadow-xl hover:border-gray-300 hover:-translate-y-2 block ${
                   isVisible.services 
                     ? 'opacity-100 translate-y-0' 

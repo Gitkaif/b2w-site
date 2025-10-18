@@ -12,14 +12,35 @@ const Header = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false)
+  const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false)
   const [activeServiceCategory, setActiveServiceCategory] = useState(null)
+  const [activeIndustryCategory, setActiveIndustryCategory] = useState(null)
   const [servicesHoverTimeout, setServicesHoverTimeout] = useState(null)
+  const [industriesHoverTimeout, setIndustriesHoverTimeout] = useState(null)
   const [categoryHoverTimeout, setCategoryHoverTimeout] = useState(null)
   const headerRef = useRef(null)
   const profileMenuRef = useRef(null)
   const servicesDropdownRef = useRef(null)
+  const industriesDropdownRef = useRef(null)
 
-  // Inject critical CSS for contrast override
+  // Helper function to get service descriptions
+  const getServiceDescription = (serviceName) => {
+    const descriptions = {
+      "Web Development": "Custom websites and web applications built with modern technologies",
+      "Mobile Application Development": "Native and cross-platform mobile apps for iOS and Android",
+      "UI/UX Design & Prototyping": "User-centered design and interactive prototypes",
+      "IT Staff Augmentation": "Skilled developers and technical professionals on-demand",
+      "Software Consulting & Product Engineering": "Expert guidance and end-to-end product development",
+      "QA & Testing": "Comprehensive testing services ensuring quality and reliability",
+      "Cloud Computing & DevOps": "Scalable cloud solutions and automated deployment pipelines",
+      "AI & Chatbots": "Intelligent automation and conversational AI solutions",
+      "Digital Marketing & SEO/SEM": "Online marketing strategies and search optimization",
+      "Digital Transformation": "Modernizing business processes with digital solutions"
+    }
+    return descriptions[serviceName] || "Professional technology solutions"
+  }
+
+  // Inject critical CSS for contrast override and line clamping
   useEffect(() => {
     const style = document.createElement("style")
     style.textContent = `
@@ -42,6 +63,12 @@ const Header = () => {
         background: #eff6ff !important;
         color: #1e40af !important;
       }
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
     `
     document.head.appendChild(style)
 
@@ -60,43 +87,37 @@ const Header = () => {
       name: "Services",
       path: "/services",
       hasDropdown: true,
-      categories: [
-        {
-          name: "Core Services",
-          services: [
-            { name: "IT Outsourcing", slug: "it-outsourcing" },
-            { name: "Custom Software Development", slug: "custom-software-development" },
-            { name: "AI Strategy & Implementation", slug: "ai-strategy-implementation" },
-            { name: "Web & Mobile Development", slug: "web-mobile-development" },
-          ]
-        },
-        {
-          name: "Specialized Solutions",
-          services: [
-            { name: "MVP Development", slug: "mvp-development" },
-            { name: "Staff Augmentation", slug: "staff-augmentation" },
-            { name: "Legacy Modernization", slug: "legacy-modernization" },
-            { name: "UI/UX Design", slug: "ui-ux-design" },
-          ]
-        },
-        {
-          name: "AI & Automation",
-          services: [
-            { name: "DevOps & Automation", slug: "devops-automation" },
-            { name: "Generative AI", slug: "generative-ai" },
-            { name: "RPA Solutions", slug: "rpa-solutions" },
-            { name: "Predictive Analytics", slug: "predictive-analytics" },
-          ]
-        },
-        {
-          name: "Industry Solutions",
-          services: [
-            { name: "Healthcare Solutions", slug: "healthcare-solutions" },
-            { name: "FinTech Solutions", slug: "fintech-solutions" },
-            { name: "Retail Solutions", slug: "retail-solutions" },
-            { name: "Manufacturing Solutions", slug: "manufacturing-solutions" },
-          ]
-        }
+      services: [
+        { name: "Web Development", slug: "web-development" },
+        { name: "Mobile Application Development", slug: "mobile-application-development" },
+        { name: "UI/UX Design & Prototyping", slug: "ui-ux-design-prototyping" },
+        { name: "IT Staff Augmentation", slug: "it-staff-augmentation" },
+        { name: "Software Consulting & Product Engineering", slug: "software-consulting-product-engineering" },
+        { name: "QA & Testing", slug: "qa-testing" },
+        { name: "Cloud Computing & DevOps", slug: "cloud-computing-devops" },
+        { name: "Digital Marketing & SEO/SEM", slug: "digital-marketing-seo-sem" },
+        { name: "AI & Chatbots", slug: "ai-chatbots" },
+        { name: "Digital Transformation", slug: "digital-transformation" }
+      ],
+    },
+    {
+      name: "Industries",
+      path: "/industries",
+      hasDropdown: true,
+      industries: [
+        "Technology",
+        "E-commerce",
+        "Finance & Banking",
+        "Healthcare",
+        "Retail",
+        "Education & E-Learning",
+        "Government & Public Sector",
+        "Startups & Innovation Hubs",
+        "Sports",
+        "Real Estate",
+        "Logistics",
+        "Travel & Hospitality",
+        "Media & Entertainment"
       ],
     },
     { name: "FAQ", path: "/faq" },
@@ -111,6 +132,10 @@ const Header = () => {
         if (isServicesDropdownOpen) {
           setIsServicesDropdownOpen(false)
           setActiveServiceCategory(null)
+        }
+        if (isIndustriesDropdownOpen) {
+          setIsIndustriesDropdownOpen(false)
+          setActiveIndustryCategory(null)
         }
         if (isProfileMenuOpen) setIsProfileMenuOpen(false)
       }
@@ -149,6 +174,10 @@ const Header = () => {
         setIsServicesDropdownOpen(false)
         setActiveServiceCategory(null)
       }
+      if (industriesDropdownRef.current && !industriesDropdownRef.current.contains(event.target)) {
+        setIsIndustriesDropdownOpen(false)
+        setActiveIndustryCategory(null)
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside)
@@ -159,9 +188,10 @@ const Header = () => {
   useEffect(() => {
     return () => {
       if (servicesHoverTimeout) clearTimeout(servicesHoverTimeout)
+      if (industriesHoverTimeout) clearTimeout(industriesHoverTimeout)
       if (categoryHoverTimeout) clearTimeout(categoryHoverTimeout)
     }
-  }, [servicesHoverTimeout, categoryHoverTimeout])
+  }, [servicesHoverTimeout, industriesHoverTimeout, categoryHoverTimeout])
 
   // Handle services dropdown hover with improved logic
   const handleServicesMouseEnter = () => {
@@ -203,12 +233,37 @@ const Header = () => {
     if (categoryHoverTimeout) clearTimeout(categoryHoverTimeout)
   }
 
+  // Handle industries dropdown hover with improved logic
+  const handleIndustriesMouseEnter = () => {
+    if (industriesHoverTimeout) clearTimeout(industriesHoverTimeout)
+    setIsIndustriesDropdownOpen(true)
+  }
+
+  const handleIndustriesMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsIndustriesDropdownOpen(false)
+      setActiveIndustryCategory(null)
+    }, 200) // Increased delay for better UX
+    setIndustriesHoverTimeout(timeout)
+  }
+
+  const handleIndustriesDropdownMouseEnter = () => {
+    if (industriesHoverTimeout) clearTimeout(industriesHoverTimeout)
+  }
+
+  const handleIndustriesDropdownMouseLeave = () => {
+    setIsIndustriesDropdownOpen(false)
+    setActiveIndustryCategory(null)
+  }
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false)
     setIsServicesDropdownOpen(false)
+    setIsIndustriesDropdownOpen(false)
     setIsProfileMenuOpen(false)
     setActiveServiceCategory(null)
+    setActiveIndustryCategory(null)
   }, [pathname])
 
   const toggleMobileMenu = () => {
@@ -216,6 +271,10 @@ const Header = () => {
     if (isServicesDropdownOpen) {
       setIsServicesDropdownOpen(false)
       setActiveServiceCategory(null)
+    }
+    if (isIndustriesDropdownOpen) {
+      setIsIndustriesDropdownOpen(false)
+      setActiveIndustryCategory(null)
     }
   }
 
@@ -306,7 +365,9 @@ const Header = () => {
             onClick={() => {
               setIsMobileMenuOpen(false)
               setIsServicesDropdownOpen(false)
+              setIsIndustriesDropdownOpen(false)
               setActiveServiceCategory(null)
+              setActiveIndustryCategory(null)
             }}
           >
             <img
@@ -343,97 +404,210 @@ const Header = () => {
                   {item.hasDropdown ? (
                     <div
                       className="relative"
-                      ref={servicesDropdownRef}
-                      onMouseEnter={handleServicesMouseEnter}
-                      onMouseLeave={handleServicesMouseLeave}
+                      ref={item.name === "Services" ? servicesDropdownRef : industriesDropdownRef}
+                      onMouseEnter={item.name === "Services" ? handleServicesMouseEnter : handleIndustriesMouseEnter}
+                      onMouseLeave={item.name === "Services" ? handleServicesMouseLeave : handleIndustriesMouseLeave}
                     >
                       <button
                         className={`py-2 px-3 font-medium rounded-md relative transition-colors duration-200 flex items-center gap-1 ${
-                           pathname.startsWith("/services") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
-                         } ${isServicesDropdownOpen ? "text-blue-600" : ""}`}
-                        style={{ color: pathname.startsWith("/services") || isServicesDropdownOpen ? '#1e40af' : '#000000' }}
+                           pathname.startsWith(item.path) ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+                         } ${(item.name === "Services" ? isServicesDropdownOpen : isIndustriesDropdownOpen) ? "text-blue-600" : ""}`}
+                        style={{ color: pathname.startsWith(item.path) || (item.name === "Services" ? isServicesDropdownOpen : isIndustriesDropdownOpen) ? '#1e40af' : '#000000' }}
                         onMouseEnter={(e) => e.target.style.color = '#1e40af'}
-                        onMouseLeave={(e) => e.target.style.color = pathname.startsWith("/services") || isServicesDropdownOpen ? '#1e40af' : '#000000'}
-                        onClick={() => router.push("/services")}
+                        onMouseLeave={(e) => e.target.style.color = pathname.startsWith(item.path) || (item.name === "Services" ? isServicesDropdownOpen : isIndustriesDropdownOpen) ? '#1e40af' : '#000000'}
+                        onClick={() => router.push(item.path)}
                       >
                         {item.name}
                         <ChevronDown
                           size={16}
-                          className={`transition-transform duration-200 ${isServicesDropdownOpen ? "rotate-180" : ""}`}
+                          className={`transition-transform duration-200 ${(item.name === "Services" ? isServicesDropdownOpen : isIndustriesDropdownOpen) ? "rotate-180" : ""}`}
                         />
                       </button>
 
-                      {/* Services Dropdown - Updated UI to match reference */}
-                      {isServicesDropdownOpen && (
+                      {/* Dropdown Content */}
+                      {(item.name === "Services" ? isServicesDropdownOpen : isIndustriesDropdownOpen) && (
                         <div
-                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 z-[60]"
-                          onMouseEnter={handleDropdownMouseEnter}
-                          onMouseLeave={handleDropdownMouseLeave}
+                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[1100px] bg-white rounded-lg shadow-lg border border-gray-200 z-[60]"
+                          onMouseEnter={item.name === "Services" ? handleDropdownMouseEnter : handleIndustriesDropdownMouseEnter}
+                          onMouseLeave={item.name === "Services" ? handleDropdownMouseLeave : handleIndustriesDropdownMouseLeave}
                         >
-                          <div className="p-4">
-                            <h3 className="text-lg font-semibold text-gray-900 mb-4">Our Services</h3>
-                            <div className="space-y-2">
-                              {item.categories.map((category) => (
-                                <div
-                                  key={category.name}
-                                  className="relative"
-                                  onMouseEnter={() => handleCategoryMouseEnter(category.name)}
-                                  onMouseLeave={handleCategoryMouseLeave}
-                                >
-                                  <div className="flex items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer transition-colors">
-                                    <div className="flex-1">
-                                      <h4 className="font-medium text-gray-900">{category.name}</h4>
-                                      <p className="text-sm text-gray-500">
-                                        {category.services.length} specializations
-                                      </p>
+                          <div className="p-6">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-6">
+                              {item.name === "Services" ? "Our Services" : "Industry Expertise"}
+                            </h3>
+                            <div className="space-y-0">
+                              {item.name === "Services" ? (
+                                <>
+                                  {/* Services Rows */}
+                                  <div className="grid grid-cols-4 divide-x divide-black h-16">
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
+                                      <Link
+                                        href="/services/web-development"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        Web Development
+                                      </Link>
                                     </div>
-                                    <ChevronRight size={16} className="text-gray-400" />
+                                    <div className="px-6 flex items-center">
+                                      <Link
+                                        href="/services/mobile-application-development"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        Mobile Application Development
+                                      </Link>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <Link
+                                        href="/services/ui-ux-design-prototyping"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        UI/UX Design & Prototyping
+                                      </Link>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <Link
+                                        href="/services/it-staff-augmentation"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        IT Staff Augmentation
+                                      </Link>
+                                    </div>
                                   </div>
-
-                                  {/* Services Submenu - Updated UI */}
-                                  {activeServiceCategory === category.name && (
-                                    <div
-                                      className="absolute left-full top-0 ml-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 z-[70]"
-                                      onMouseEnter={handleSubcategoryMouseEnter}
-                                    >
-                                      <div className="p-3">
-                                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
-                                          {category.name}
-                                        </h5>
-                                        <div className="space-y-1">
-                                          {category.services.map((service) => (
-                                            <Link
-                                              key={service.slug}
-                                              href={`/services/${service.slug}`}
-                                              className="block p-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-                                              onClick={() => {
-                                                setIsServicesDropdownOpen(false)
-                                                setActiveServiceCategory(null)
-                                              }}
-                                            >
-                                              {service.name}
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      </div>
+                                  
+                                  <div className="grid grid-cols-4 divide-x divide-black h-16">
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
+                                      <Link
+                                        href="/services/software-consulting-product-engineering"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        Software Consulting & Product Engineering
+                                      </Link>
                                     </div>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* View All Services Link */}
-                            <div className="mt-4 pt-4 border-t border-gray-200">
-                              <Link
-                                href="/services"
-                                className="block w-full text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-                                onClick={() => {
-                                  setIsServicesDropdownOpen(false)
-                                  setActiveServiceCategory(null)
-                                }}
-                              >
-                                View All Services
-                              </Link>
+                                    <div className="px-6 flex items-center">
+                                      <Link
+                                        href="/services/qa-testing"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        QA & Testing
+                                      </Link>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <Link
+                                        href="/services/cloud-computing-devops"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        Cloud Computing & DevOps
+                                      </Link>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <Link
+                                        href="/services/digital-marketing-seo-sem"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        Digital Marketing & SEO/SEM
+                                      </Link>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="grid grid-cols-4 divide-x divide-black h-16">
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
+                                      <Link
+                                        href="/services/ai-chatbots"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        AI & Chatbots
+                                      </Link>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <Link
+                                        href="/services/digital-transformation"
+                                        className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                      >
+                                        Digital Transformation
+                                      </Link>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      {/* Empty cell */}
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      {/* Empty cell */}
+                                    </div>
+                                  </div>
+                                </>
+                              ) : (
+                                <>
+                                  {/* Industries Rows */}
+                                  <div className="grid grid-cols-4 divide-x divide-black h-16">
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Technology</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">E-commerce</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Finance & Banking</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Healthcare</span>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="grid grid-cols-4 divide-x divide-black h-16">
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Retail</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Education & E-Learning</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Government & Public Sector</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Startups & Innovation Hubs</span>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="grid grid-cols-4 divide-x divide-black h-16">
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Sports</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Real Estate</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Logistics</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Travel & Hospitality</span>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="grid grid-cols-4 divide-x divide-black h-16">
+                                    <div className="px-6 first:pl-6 last:pr-0 flex items-center">
+                                      <span className="text-gray-700 text-sm font-medium">Media & Entertainment</span>
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      {/* Empty cell */}
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      {/* Empty cell */}
+                                    </div>
+                                    <div className="px-6 flex items-center">
+                                      {/* Empty cell */}
+                                    </div>
+                                  </div>
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -578,16 +752,16 @@ const Header = () => {
                     <Link
                       href={item.path}
                       className={`block text-center py-3 px-4 mx-4 text-lg font-medium rounded-lg relative transition-colors duration-200 ${
-                        pathname.startsWith("/services") ? "active-link" : ""
+                        pathname.startsWith(item.path) ? "active-link" : ""
                       }`}
-                      style={{ color: pathname.startsWith("/services") ? '#1e40af' : '#000000' }}
+                      style={{ color: pathname.startsWith(item.path) ? '#1e40af' : '#000000' }}
                       onMouseEnter={(e) => e.target.style.color = '#1e40af'}
-                      onMouseLeave={(e) => e.target.style.color = pathname.startsWith("/services") ? '#1e40af' : '#000000'}
+                      onMouseLeave={(e) => e.target.style.color = pathname.startsWith(item.path) ? '#1e40af' : '#000000'}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
-                    {/* Note: Dropdown content removed for mobile - services redirect directly to /services */}
+                    {/* Note: Dropdown content removed for mobile - redirects directly to page */}
                   </div>
                 ) : (
                   <Link

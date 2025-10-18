@@ -13,22 +13,18 @@ export default function CategoryPage() {
 
   // Map URL category to display name
   const categoryDisplayNames = {
-    "web-development": "Web Development",
-    "mobile-development": "Mobile Development", 
-    "ai-machine-learning": "AI & Machine Learning",
-    "cloud-devops": "Cloud & DevOps",
-    "enterprise-solutions": "Enterprise Solutions",
-    "security-support": "Security & Support"
+    "development-services": "Development Services",
+    "engineering-consulting": "Engineering & Consulting",
+    "technology-solutions": "Technology Solutions",
+    "business-growth": "Business Growth"
   }
 
   // Map URL category to service category names used in servicesData
   const categoryMappings = {
-    "web-development": "Web Development",
-    "mobile-development": "Mobile Development",
-    "ai-machine-learning": "AI & Machine Learning", 
-    "cloud-devops": "Cloud & DevOps",
-    "enterprise-solutions": "Digital Transformation",
-    "security-support": "Security & Support"
+    "development-services": "Development Services",
+    "engineering-consulting": "Engineering & Consulting",
+    "technology-solutions": "Technology Solutions",
+    "business-growth": "Business Growth"
   }
 
   const displayName = categoryDisplayNames[category] || "Services"

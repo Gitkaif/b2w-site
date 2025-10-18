@@ -36,31 +36,31 @@ const FeatureItem = ({ title }) => (
 // Collaboration features array
 const CollaborationFeatures = [
   {
-    title: "AI-Powered Code Generation",
+    title: "Web Development Excellence",
   },
   {
-    title: "Full-Stack Development ",
+    title: "Mobile Application Development",
   },
   {
-    title: "Custom Digital Solutions",
+    title: "UI/UX Design & Prototyping",
   },
   {
-    title: "Enterprise AI/ML Services",
+    title: "Cloud Computing & DevOps",
   },
   {
-    title: "24/7 Dedicated Support",
+    title: "AI & Chatbots Solutions",
   },
 ];
 
 const Collaboration = () => {
   return (
     <div className="py-12 sm:py-16 md:py-20 relative overflow-hidden" style={{backgroundColor: '#FFFFFF'}}>
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 relative z-10 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-5 md:px-7 lg:px-8 xl:px-14 relative z-10 max-w-7xl">
         <div className="lg:flex items-start gap-6 lg:gap-8 xl:gap-16">
           {/* Left Content Section */}
           <div className="max-w-full lg:max-w-[34rem] flex-shrink-0 mb-8 sm:mb-10 lg:mb-0 text-center lg:text-left">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-6 sm:mb-8 md:mb-12 leading-tight text-black">
-              Platform for <span className="text-black">AI-Powered Development</span> <span className="text-blue-800">Excellence</span>
+              Platform for <span className="text-black">Software Development</span> <span className="text-blue-800">Excellence</span>
             </h2>
 
             <ul className="mb-6 sm:mb-8 md:mb-12 space-y-3 sm:space-y-4">
@@ -90,7 +90,7 @@ const Collaboration = () => {
                   py-2 sm:py-3
                 "
               >
-              START AI DEVELOPMENT
+              START DEVELOPMENT PROJECT
               </InlineButton>
             </div>
           </div>
@@ -98,7 +98,7 @@ const Collaboration = () => {
           {/* Right Visual Section */}
           <div className="lg:flex-1 text-center lg:text-left">
             <p className="text-gray-700 mb-6 sm:mb-8 md:mb-12 lg:mb-16 xl:mb-20 lg:max-w-[34rem] lg:mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
-              Empowering businesses of all sizes to accelerate digital transformation 
+              Empowering businesses with comprehensive software development services including web, mobile, cloud, and AI solutions
             </p>
 
             {/* Circular Integration Diagram */}

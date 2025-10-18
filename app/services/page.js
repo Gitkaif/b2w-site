@@ -8,77 +8,59 @@ import Footer from "@/components/Footer"
 export default function ServicesPage() {
   // Mapping of service names to actual slugs in servicesData.js
   const serviceNameToSlug = {
-    "IT Outsourcing": "it-outsourcing",
-    "Custom Software Development": "custom-software-development",
-    "AI Strategy & Implementation": "ai-strategy-implementation",
-    "Web & Mobile Development": "web-mobile-development",
-    "MVP Development": "mvp-development",
-    "Staff Augmentation": "staff-augmentation",
-    "Legacy Modernization": "legacy-modernization",
-    "UI/UX Design": "ui-ux-design",
-    "DevOps & Automation": "devops-automation",
-    "Generative AI": "generative-ai",
-    "RPA Solutions": "rpa-solutions",
-    "Predictive Analytics": "predictive-analytics",
-    "Healthcare Solutions": "healthcare-solutions",
-    "FinTech Solutions": "fintech-solutions",
-    "Retail Solutions": "retail-solutions",
-    "Manufacturing Solutions": "manufacturing-solutions",
+    "Web Development": "web-development",
+    "Mobile Application Development": "mobile-application-development",
+    "UI/UX Design & Prototyping": "ui-ux-design-prototyping",
+    "IT Staff Augmentation": "it-staff-augmentation",
+    "Software Consulting & Product Engineering": "software-consulting-product-engineering",
+    "QA & Testing": "qa-testing",
+    "Cloud Computing & DevOps": "cloud-computing-devops",
+    "Digital Marketing & SEO/SEM": "digital-marketing-seo-sem",
+    "AI & Chatbots": "ai-chatbots",
+    "Digital Transformation": "digital-transformation",
   }
 
   const serviceCategories = [
     {
-      name: "Core Services",
+      name: "Development Services",
       icon: Code,
       color: "blue",
-      description: "Comprehensive IT outsourcing and custom software development solutions",
+      description: "Full-stack development solutions for modern web and mobile applications",
       services: [
-        "IT Outsourcing",
-        "Custom Software Development",
-        "AI Strategy & Implementation",
-        "Web & Mobile Development",
-        "MVP Development",
-        "Staff Augmentation",
+        "Web Development",
+        "Mobile Application Development",
+        "UI/UX Design & Prototyping",
       ],
     },
     {
-      name: "AI & Automation",
-      icon: Brain,
-      color: "cyan",
-      description: "Cutting-edge AI solutions and intelligent automation technologies",
-      services: [
-        "Generative AI",
-        "RPA Solutions",
-        "Predictive Analytics",
-        "DevOps & Automation",
-        "Legacy Modernization",
-        "UI/UX Design",
-      ],
-    },
-    {
-      name: "Industry Solutions",
+      name: "Engineering & Consulting",
       icon: Building2,
-      color: "blue",
-      description: "Specialized software solutions for specific industry verticals",
+      color: "cyan",
+      description: "Expert consulting and engineering services to accelerate your projects",
       services: [
-        "Healthcare Solutions",
-        "FinTech Solutions",
-        "Retail Solutions",
-        "Manufacturing Solutions",
+        "IT Staff Augmentation",
+        "Software Consulting & Product Engineering",
+        "QA & Testing",
       ],
     },
     {
-      name: "Digital Transformation",
+      name: "Technology Solutions",
       icon: Cloud,
-      color: "cyan",
-      description: "End-to-end digital transformation and modernization services",
+      color: "blue",
+      description: "Advanced technology solutions leveraging cloud and AI technologies",
       services: [
-        "Legacy System Migration",
-        "Cloud Migration",
-        "Process Automation",
-        "Data Analytics",
-        "API Integration",
-        "Microservices Architecture",
+        "Cloud Computing & DevOps",
+        "AI & Chatbots",
+      ],
+    },
+    {
+      name: "Business Growth",
+      icon: Shield,
+      color: "cyan",
+      description: "Digital marketing and transformation services to drive business growth",
+      services: [
+        "Digital Marketing & SEO/SEM",
+        "Digital Transformation",
       ],
     },
   ]
@@ -144,11 +126,11 @@ export default function ServicesPage() {
                   </div>
 
                   <Link href={`/services/category/${
-                    category.name === "Core Services" ? "core-services" :
-                    category.name === "AI & Automation" ? "ai-automation" :
-                    category.name === "Industry Solutions" ? "industry-solutions" :
-                    category.name === "Digital Transformation" ? "digital-transformation" :
-                    "core-services" // fallback
+                    category.name === "Development Services" ? "development-services" :
+                    category.name === "Engineering & Consulting" ? "engineering-consulting" :
+                    category.name === "Technology Solutions" ? "technology-solutions" :
+                    category.name === "Business Growth" ? "business-growth" :
+                    "development-services" // fallback
                   }`}>
                     <button
                       className={`w-full ${

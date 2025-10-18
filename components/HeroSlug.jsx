@@ -33,7 +33,7 @@ export default function HeroSlug({ service }) {
   const currentService = service || defaultService
 
   return (
-    <div className="bg-black min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative overflow-hidden pt-20 sm:pt-24 md:pt-16">
+    <div className="bg-black min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative overflow-hidden pt-16 sm:pt-20 md:pt-12">
 
       {/* Background Image Carousel */}
       <div className="absolute inset-0">
@@ -67,7 +67,7 @@ export default function HeroSlug({ service }) {
       </div>
       
       {/* Hero Content - Service Specific */}
-      <div className="flex items-center min-h-[40vh] sm:min-h-[50vh] md:min-h-[60vh] pt-8 sm:pt-10 md:pt-12 relative z-10">
+        <div className="flex items-center min-h-[40vh] sm:min-h-[50vh] md:min-h-[60vh] pt-4 sm:pt-6 md:pt-8 relative z-10">
         {/* Service Content - Taking full width and centered */}
         <div className="w-full text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">

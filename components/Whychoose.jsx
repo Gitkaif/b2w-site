@@ -9,24 +9,24 @@ const CircularShowcase = () => {
 
   const showcaseItems = [
     {
-      title: "AI-Powered Development",
-      description: "Revolutionary AI-driven code generation and automated testing frameworks for faster, more reliable software delivery.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Full-Stack Expertise",
-      description: "End-to-end web and mobile application development with modern frameworks and cloud integration.",
+      title: "Web Development",
+      description: "Custom web applications built with modern technologies for exceptional user experiences and business growth.",
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Digital Transformation",
-      description: "Comprehensive business modernization with intelligent automation and predictive analytics integration.",
-      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "Mobile Application Development",
+      description: "Native and cross-platform mobile apps that deliver exceptional user experiences across all devices.",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "24/7 Expert Support",
-      description: "Round-the-clock technical support with enterprise-grade security and comprehensive managed services.",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "UI/UX Design & Prototyping",
+      description: "User-centered design solutions that create intuitive, engaging digital experiences that drive conversions.",
+      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Cloud Computing & DevOps",
+      description: "Scalable cloud infrastructure and DevOps practices for reliable, high-performance applications.",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -80,7 +80,7 @@ const CircularShowcase = () => {
             Why Choose <span className="text-blue-800">B2W Infotech?</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-20">
-            Revolutionary AI-powered IT outsourcing solutions for digital transformation and full-stack development
+            Comprehensive software development services including web, mobile, cloud, and AI solutions for your business success
           </p>
         </div>
 
