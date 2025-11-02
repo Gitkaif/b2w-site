@@ -212,5 +212,6 @@ export default function ServicesPage() {
       </div>
       <Footer />
     </main>
-  )
+  );
 }
+

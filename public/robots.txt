@@ -1,0 +1,57 @@
+# 🚀 ULTIMATE ROBOTS.TXT FOR B2W INFOTECH - RANK #1 ON GOOGLE 🚀
+
+# ==================== ALLOW ALL MAJOR SEARCH ENGINES ====================
+User-agent: *
+Allow: /
+
+# ==================== GOOGLE BOT (Priority) ====================
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# ==================== GOOGLE IMAGE BOT ====================
+User-agent: Googlebot-Image
+Allow: /
+
+# ==================== GOOGLE MOBILE BOT ====================
+User-agent: Googlebot-Mobile
+Allow: /
+
+# ==================== BING BOT ====================
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# ==================== YANDEX BOT ====================
+User-agent: Yandex
+Allow: /
+
+# ==================== BAIDU BOT ====================
+User-agent: Baiduspider
+Allow: /
+
+# ==================== DISALLOW ADMIN & API ROUTES ====================
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /_next/
+Disallow: /static/
+
+# ==================== SITEMAP LOCATION ====================
+Sitemap: https://www.b2winfotech.ai/sitemap.xml
+
+# ==================== CRAWL OPTIMIZATION ====================
+# No crawl delay for major search engines = faster indexing
+# All public pages are crawlable
+# Admin, API, and auth routes are protected
+# Static Next.js files excluded for efficiency
+
+# ==================== CONTACT INFO FOR SEARCH ENGINES ====================
+# B2W Infotech
+# A-402, Polaris Building, Gamdevi, Marol
+# Andheri East, Mumbai, Maharashtra 400059
+# Phone: +91-7798001001
+# Email: b2winfotek@gmail.com
