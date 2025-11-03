@@ -1,10 +1,10 @@
-"use client"
 import Link from "next/link"
 import { Code, Smartphone, Brain, Cloud, Building2, Shield, ChevronRight } from "lucide-react"
 import Header from "@/components/Header"
 import HeroServices from "@/components/HeroServices"
 import Footer from "@/components/Footer"
 import { generateMetaTags } from "@/lib/ultimateSEO";
+import Lowerfooter from "@/components/LowerFooter"
 
 // 🚀 SERVICES PAGE SEO METADATA 🚀
 export const metadata = generateMetaTags("services");
@@ -187,32 +187,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6">
-            Ready to{" "}
-            <span className="text-blue-800">Transform</span>{" "}
-            Your Business?
-          </h2>
-
-          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            Join 1200+ companies worldwide who have transformed their businesses with B2W Infotech's AI-powered development solutions. With 15+ years of experience and ISO certifications, we deliver exceptional results across all industries.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <button className="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/25 border border-blue-400/30 text-lg">
-                Start Your Project Today
-              </button>
-            </Link>
-            <Link href="/faq">
-              <button className="border border-gray-400 hover:border-gray-500 hover:bg-gray-100 text-gray-700 hover:text-black font-semibold py-4 px-8 rounded-lg transition-all duration-200 bg-white text-lg">
-                Have Questions?
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Lowerfooter />
       </div>
       <Footer />
     </main>

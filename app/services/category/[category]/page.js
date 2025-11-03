@@ -4,7 +4,7 @@ import Header from "@/components/Header"
 import HeroSlug from "@/components/HeroSlug"
 import Footer from "@/components/Footer"
 import { getServicesByCategory } from "../../../../lib/servicesData"
-
+import Lowerfooter from "@/components/LowerFooter"
 export default async function CategoryPage({ params }) {
   const { category } = await params
 
@@ -161,30 +161,7 @@ export default async function CategoryPage({ params }) {
         </section>
 
         {/* CTA Section */}
-        <section className="relative z-10 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16" style={{ backgroundColor: "#EFF9F0" }}>
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6">
-              Ready to Get Started with <span className="text-blue-600">{displayName}</span>?
-            </h2>
-
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              Let's discuss your {displayName.toLowerCase()} requirements and create a custom solution that drives your business forward with expert implementation and ongoing support.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <button className="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/25 border border-blue-400/30 text-lg">
-                  Start Your Project Today
-                </button>
-              </Link>
-              <Link href="/contact">
-                <button className="border border-gray-400 hover:border-gray-500 hover:bg-gray-100 text-gray-700 hover:text-black font-semibold py-4 px-8 rounded-lg transition-all duration-200 bg-white text-lg">
-                  Schedule Free Consultation
-                </button>
-              </Link>
-            </div>
-          </div>
-        </section>
+        <Lowerfooter />
       </div>
       <Footer />
     </main>
