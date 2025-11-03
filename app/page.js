@@ -12,6 +12,11 @@ import Services from "@/components/Services";
 import Client from "@/components/Client";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
+import { generateMetaTags } from "@/lib/ultimateSEO";
+
+// 🚀 HOME PAGE SEO METADATA 🚀
+export const metadata = generateMetaTags("home");
+
 export default function Home() {
   return (
     <main>

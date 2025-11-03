@@ -4,6 +4,10 @@ import { Code, Smartphone, Brain, Cloud, Building2, Shield, ChevronRight } from 
 import Header from "@/components/Header"
 import HeroServices from "@/components/HeroServices"
 import Footer from "@/components/Footer"
+import { generateMetaTags } from "@/lib/ultimateSEO";
+
+// 🚀 SERVICES PAGE SEO METADATA 🚀
+export const metadata = generateMetaTags("services");
 
 export default function ServicesPage() {
   // Mapping of service names to actual slugs in servicesData.js

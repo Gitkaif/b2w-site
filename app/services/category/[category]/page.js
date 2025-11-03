@@ -1,5 +1,3 @@
-"use client"
-import { useParams } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, ChevronRight } from "lucide-react"
 import Header from "@/components/Header"
@@ -7,9 +5,8 @@ import HeroSlug from "@/components/HeroSlug"
 import Footer from "@/components/Footer"
 import { getServicesByCategory } from "../../../../lib/servicesData"
 
-export default function CategoryPage() {
-  const params = useParams()
-  const category = params.category
+export default async function CategoryPage({ params }) {
+  const { category } = await params
 
   // Map URL category to display name
   const categoryDisplayNames = {

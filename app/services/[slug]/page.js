@@ -1,15 +1,19 @@
-"use client"
-import { useParams } from "next/navigation"
 import Link from "next/link"
 import { getServiceBySlug, getRelatedServices } from "../../../lib/servicesData"
+import { generateMetaTags } from "../../../lib/ultimateSEO"
 import { ArrowLeft, Check, ChevronRight, Star } from "lucide-react"
 import Header from "@/components/Header"
 import HeroSlug from "@/components/HeroSlug"
 import Footer from "@/components/Footer"
 
-export default function ServiceDetailPage() {
-  const params = useParams()
-  const slug = params.slug
+// 🚀 DYNAMIC SERVICE PAGE SEO METADATA 🚀
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  return generateMetaTags(slug)
+}
+
+export default async function ServiceDetailPage({ params }) {
+  const { slug } = await params
 
   const service = getServiceBySlug(slug)
   const relatedServices = getRelatedServices(slug)
