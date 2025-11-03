@@ -2,6 +2,7 @@ import ChatWidget from "@/components/chatbot";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,10 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL('https://www.b2winfotech.ai'),
   title: {
-    default: "B2W Infotech Mumbai | #1 Software Development Company Andheri East | ISO Certified IT Services India",
+    default: "B2W Infotech Mumbai | #1 AI Software Development Company India | ISO Certified | 15+ Years",
     template: "%s | B2W Infotech - Leading IT Company Mumbai"
   },
-  description: "⭐ #1 ISO Certified Software Development Company in Mumbai, Andheri East with 15+ years excellence & 1200+ projects. Expert Web Development, Mobile Apps, AI Solutions, Staff Augmentation, Digital Marketing, Cloud Services, DevOps. Trusted by 500+ clients across Healthcare, FinTech, Retail. 🏆 Best IT Outsourcing Company India.",
+  description: "🏆 #1 Rated Software Development Company in Mumbai, India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Located in Andheri East, Mumbai. Free Consultation - Call +91-7798001001",
   keywords: [
     // Location-based keywords
     "software development company mumbai", "IT company andheri east", "software company marol", "IT services mumbai",
@@ -39,8 +40,8 @@ export const metadata = {
     "healthcare software development", "fintech software solutions", "retail software development",
     "manufacturing software solutions", "enterprise software development",
     // Developer hiring keywords
-    "hire java developers", "hire python developers", "hire react developers", "hire nodejs developers",
-    "hire .NET developers", "hire UI/UX designers", "hire devops engineers", "hire flutter developers",
+    "java developers outsourcing", "python developers outsourcing", "react developers outsourcing", "nodejs developers outsourcing",
+    ".NET developers outsourcing", "UI/UX designers outsourcing", "devops engineers outsourcing", "flutter developers outsourcing",
     // Competitive keywords
     "best software company mumbai", "top IT company india", "leading software development firm",
     "award winning software company", "trusted IT services provider"
@@ -64,8 +65,8 @@ export const metadata = {
     locale: "en_IN",
     url: "https://www.b2winfotech.ai",
     siteName: "B2W Infotech",
-    title: "B2W Infotech Mumbai | #1 Software Development Company Andheri East | ISO Certified",
-    description: "⭐ #1 ISO Certified Software Development Company in Mumbai, Andheri East. 15+ years, 1200+ projects. Expert Web, Mobile, AI, Cloud Services. Trusted by 500+ clients.",
+    title: "B2W Infotech - #1 Software Development Company in Mumbai | ISO Certified",
+    description: "Leading AI-powered software development company in Mumbai with 15+ years experience. ISO certified. 1200+ successful projects worldwide.",
     images: [
       {
         url: "/images/logo.jpg",
@@ -77,8 +78,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "B2W Infotech Mumbai | #1 Software Development Company",
-    description: "⭐ ISO Certified IT Company in Andheri East. 15+ years, 1200+ projects. Expert Software Development Services.",
+    title: "B2W Infotech - #1 Software Development Company in Mumbai",
+    description: "15+ years of software development excellence. ISO certified. 1200+ projects delivered. Expert team in Mumbai serving global clients.",
     images: ["/images/logo.jpg"],
   },
   alternates: {
@@ -100,8 +101,8 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="geo.region" content="IN-MH" />
         <meta name="geo.placename" content="Mumbai" />
-        <meta name="geo.position" content="19.116571;72.880348" />
-        <meta name="ICBM" content="19.116571, 72.880348" />
+        <meta name="geo.position" content="19.1136;72.8697" />
+        <meta name="ICBM" content="19.1136, 72.8697" />
         <link rel="canonical" href="https://www.b2winfotech.ai" />
         <link rel="icon" href="/favicon.ico" />
         
@@ -129,8 +130,8 @@ export default function RootLayout({ children }) {
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 19.116571,
-                "longitude": 72.880348
+                "latitude": 19.1136,
+                "longitude": 72.8697
               },
               "openingHoursSpecification": [
                 {
@@ -195,16 +196,8 @@ export default function RootLayout({ children }) {
                   "telephone": "+91-7798001001",
                   "contactType": "Customer Service",
                   "email": "b2winfotek@gmail.com",
-                  "areaServed": "IN",
-                  "availableLanguage": ["English", "Hindi"]
-                },
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+91-7798001001",
-                  "contactType": "Sales",
-                  "email": "b2winfotek@gmail.com",
                   "areaServed": "Worldwide",
-                  "availableLanguage": "English"
+                  "availableLanguage": ["English", "Hindi"]
                 }
               ],
               "address": {
@@ -312,10 +305,15 @@ export default function RootLayout({ children }) {
                 }
               ],
               "knowsAbout": [
-                "Java Development", "Python Development", "React Development", "Node.js Development",
-                ".NET Development", "Flutter Development", "Angular Development", "PHP Development",
-                "AI & Machine Learning", "Cloud Computing", "DevOps", "Agile Development",
-                "Healthcare Software", "FinTech Solutions", "E-commerce Development", "ERP Systems"
+                "Software Development",
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Web Development",
+                "Mobile App Development",
+                "Cloud Computing",
+                "DevOps",
+                "Digital Transformation",
+                "IT Consulting"
               ]
             })
           }}
@@ -345,8 +343,8 @@ export default function RootLayout({ children }) {
                 "@type": "GeoCircle",
                 "geoMidpoint": {
                   "@type": "GeoCoordinates",
-                  "latitude": "19.116571",
-                  "longitude": "72.880348"
+                  "latitude": "19.1136",
+                  "longitude": "72.8697"
                 },
                 "geoRadius": "50000"
               }
@@ -378,6 +376,7 @@ export default function RootLayout({ children }) {
         <ChatWidget />
         <WhatsAppWidget />
         {children}
+        <Analytics />
       </body>
     </html>
   );
