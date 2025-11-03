@@ -75,7 +75,7 @@ export default function LoginPage() {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  // Check if already authenticated
+  // Check if already authenticated (async, non-blocking)
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -83,13 +83,15 @@ export default function LoginPage() {
           credentials: "include",
         });
         if (response.ok) {
-          router.replace("/main");
+          router.replace("/");
         }
       } catch (error) {
         // User not authenticated, continue with login
       }
     };
-    checkAuth();
+    // Small delay to ensure smooth page load
+    const timer = setTimeout(checkAuth, 100);
+    return () => clearTimeout(timer);
   }, [router]);
 
   const validateForm = () => {

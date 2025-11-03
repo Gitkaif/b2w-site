@@ -5,102 +5,55 @@ import HeroServices from "@/components/HeroServices"
 import Footer from "@/components/Footer"
 import { generateMetaTags } from "@/lib/ultimateSEO";
 import Lowerfooter from "@/components/LowerFooter"
+import { getAllCategories, getServicesByCategory, getServiceBySlug } from "@/lib/servicesData";
 
 // 🚀 SERVICES PAGE SEO METADATA 🚀
 export const metadata = generateMetaTags("services");
 
 export default function ServicesPage() {
-  // Mapping of service names to actual slugs in servicesData.js
-  const serviceNameToSlug = {
-    "Web Development": "web-development",
-    "Mobile Application Development": "mobile-application-development",
-    "UI/UX Design & Prototyping": "ui-ux-design-prototyping",
-    "IT Staff Augmentation": "it-staff-augmentation",
-    "Software Consulting & Product Engineering": "software-consulting-product-engineering",
-    "QA & Testing": "qa-testing",
-    "Cloud Computing & DevOps": "cloud-computing-devops",
-    "Digital Marketing & SEO/SEM": "digital-marketing-seo-sem",
-    "AI & Chatbots": "ai-chatbots",
-    "Digital Transformation": "digital-transformation",
-    // Team Augmentation Services
-    "Java Developers": "java-developers",
-    "PHP Developers": "php-developers",
-    "Python Developers": "python-developers",
-    "ReactJS Developers": "reactjs-developers",
-    ".NET Developers": "dotnet-developers",
-    "UI/UX Designers": "ui-ux-designers",
-    "Frontend Developers": "frontend-developers",
-    "NodeJS Developers": "nodejs-developers",
-    "Flutter Developers": "flutter-developers",
-    "Angular Developers": "angular-developers",
-    "DevOps Engineers": "devops-engineers",
-    "iOS Developers": "ios-developers",
-  }
+  // Get all categories dynamically
+  const categories = getAllCategories();
 
-  const serviceCategories = [
-    {
-      name: "Development Services",
-      icon: Code,
-      color: "blue",
-      description: "Full-stack development solutions for modern web and mobile applications",
-      services: [
-        "Web Development",
-        "Mobile Application Development",
-        "UI/UX Design & Prototyping",
-      ],
-    },
-    {
-      name: "Engineering & Consulting",
-      icon: Building2,
-      color: "cyan",
-      description: "Expert consulting and engineering services to accelerate your projects",
-      services: [
-        "IT Staff Augmentation",
-        "Software Consulting & Product Engineering",
-        "QA & Testing",
-      ],
-    },
-    {
-      name: "Technology Solutions",
-      icon: Cloud,
-      color: "blue",
-      description: "Advanced technology solutions leveraging cloud and AI technologies",
-      services: [
-        "Cloud Computing & DevOps",
-        "AI & Chatbots",
-      ],
-    },
-    {
-      name: "Business Growth",
-      icon: Shield,
-      color: "cyan",
-      description: "Digital marketing and transformation services to drive business growth",
-      services: [
-        "Digital Marketing & SEO/SEM",
-        "Digital Transformation",
-      ],
-    },
-    {
-      name: "Team Augmentation Services",
-      icon: Brain,
-      color: "blue",
-      description: "Skilled developers and technical professionals available for your projects",
-      services: [
-        "Java Developers",
-        "PHP Developers",
-        "Python Developers",
-        "ReactJS Developers",
-        ".NET Developers",
-        "UI/UX Designers",
-        "Frontend Developers",
-        "NodeJS Developers",
-        "Flutter Developers",
-        "Angular Developers",
-        "DevOps Engineers",
-        "iOS Developers",
-      ],
-    },
-  ]
+  // Icon mapping for categories
+  const categoryIcons = {
+    "Development Services": Code,
+    "Engineering & Consulting": Building2,
+    "Technology Solutions": Cloud,
+    "Business Growth": Shield,
+    "Team Augmentation Services": Brain,
+  };
+
+  // Color mapping for categories
+  const categoryColors = {
+    "Development Services": "blue",
+    "Engineering & Consulting": "cyan",
+    "Technology Solutions": "blue",
+    "Business Growth": "cyan",
+    "Team Augmentation Services": "blue",
+  };
+
+  // Description mapping for categories
+  const categoryDescriptions = {
+    "Development Services": "Full-stack development solutions for modern web and mobile applications",
+    "Engineering & Consulting": "Expert consulting and engineering services to accelerate your projects",
+    "Technology Solutions": "Advanced technology solutions leveraging cloud and AI technologies",
+    "Business Growth": "Digital marketing and transformation services to drive business growth",
+    "Team Augmentation Services": "Skilled developers and technical professionals available for your projects",
+  };
+
+  // Generate service categories dynamically
+  const serviceCategories = categories.map(category => {
+    const services = getServicesByCategory(category);
+    const serviceNames = services.map(service => service.title);
+
+    return {
+      name: category,
+      icon: categoryIcons[category] || Code,
+      color: categoryColors[category] || "blue",
+      description: categoryDescriptions[category] || "Professional services for your business needs",
+      services: serviceNames,
+    };
+  });
 
   return (
     <main>
@@ -144,8 +97,10 @@ export default function ServicesPage() {
 
                   <div className="space-y-2 mb-6 flex-grow">
                     {category.services.slice(0, 4).map((service, serviceIndex) => {
-                      // Get the correct slug from the mapping or create one from service name
-                      const serviceSlug = serviceNameToSlug[service] || service.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                      // Get the service object with slug
+                      const servicesInCategory = getServicesByCategory(category.name);
+                      const serviceObj = servicesInCategory.find(s => s.title === service);
+                      const serviceSlug = serviceObj ? serviceObj.slug : service.toLowerCase().replace(/[^a-z0-9]+/g, "-");
                       return (
                         <Link key={serviceIndex} href={`/services/${serviceSlug}`}>
                           <div className="flex items-center text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors p-2 rounded hover:bg-blue-50">
@@ -162,13 +117,7 @@ export default function ServicesPage() {
                     )}
                   </div>
 
-                  <Link href={`/services/category/${
-                    category.name === "Development Services" ? "development-services" :
-                    category.name === "Engineering & Consulting" ? "engineering-consulting" :
-                    category.name === "Technology Solutions" ? "technology-solutions" :
-                    category.name === "Business Growth" ? "business-growth" :
-                    "development-services" // fallback
-                  }`}>
+                  <Link href={`/services/category/${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
                     <button
                       className={`w-full ${
                         category.color === "cyan"
