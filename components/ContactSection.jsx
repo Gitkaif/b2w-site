@@ -59,10 +59,10 @@ export default function ContactSection() {
           <div className="bg-white border border-gray-300 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg">
             <div className="mb-6 sm:mb-8">
               <h2 className="text-xs sm:text-sm text-blue-600 mb-1.5 sm:mb-2 font-semibold tracking-wide uppercase">Contact B2W Infotech</h2>
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black">
                 Transform Your Business with 
                 <span className="text-blue-600"> AI-Powered Development</span>
-              </h1>
+              </h2>
               <p className="text-gray-700 mt-3 sm:mt-4 text-sm sm:text-base">
                 Join 1200+ companies that have revolutionized their IT outsourcing with our 15+ years of experience, ISO certifications, and cutting-edge AI development solutions. Let's discuss how we can accelerate your digital transformation.
               </p>

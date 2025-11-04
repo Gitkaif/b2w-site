@@ -18,10 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL('https://www.b2winfotech.ai'),
   title: {
-    default: "B2W Infotech Mumbai | #1 AI Software Development Company India | ISO Certified | 15+ Years",
-    template: "%s | B2W Infotech - Leading IT Company Mumbai"
+    default: "B2W Infotech | #1 AI Software Development Company India | ISO Certified",
+    template: "%s | B2W Infotech - Leading IT Company"
   },
-  description: "🏆 #1 Rated Software Development Company in Mumbai, India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Located in Andheri East, Mumbai. Free Consultation - Call +91-7798001001",
+  description: "🏆 #1 Rated Software Development Company in India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Free Consultation - Call +91-7798001001",
   keywords: [
     // Location-based keywords
     "software development company mumbai", "IT company andheri east", "software company marol", "IT services mumbai",
@@ -65,8 +65,8 @@ export const metadata = {
     locale: "en_IN",
     url: "https://www.b2winfotech.ai",
     siteName: "B2W Infotech",
-    title: "B2W Infotech - #1 Software Development Company in Mumbai | ISO Certified",
-    description: "Leading AI-powered software development company in Mumbai with 15+ years experience. ISO certified. 1200+ successful projects worldwide.",
+    title: "B2W Infotech - #1 Software Development Company in India",
+    description: "15+ years of software development excellence. ISO certified. 1200+ projects delivered. Expert team serving global clients.",
     images: [
       {
         url: "/images/logo.jpg",
@@ -103,8 +103,16 @@ export default function RootLayout({ children }) {
         <meta name="geo.placename" content="Mumbai" />
         <meta name="geo.position" content="19.1136;72.8697" />
         <meta name="ICBM" content="19.1136, 72.8697" />
-        <link rel="canonical" href="https://www.b2winfotech.ai" />
         <link rel="icon" href="/favicon.ico" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.b2winfotech.ai" />
+        <meta property="og:title" content="B2W Infotech | #1 AI Software Development Company India | ISO Certified" />
+        <meta property="og:description" content="🏆 #1 Rated Software Development Company in India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Free Consultation - Call +91-7798001001" />
+        <meta property="og:image" content="https://www.b2winfotech.ai/images/logo.jpg" />
+        <meta property="og:site_name" content="B2W Infotech" />
+        <meta property="og:locale" content="en_IN" />
         
         {/* 🚀 ULTIMATE LOCAL BUSINESS SCHEMA - RANK #1 FOR LOCAL SEARCHES 🚀 */}
         <script

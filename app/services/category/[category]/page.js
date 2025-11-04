@@ -5,6 +5,29 @@ import HeroSlug from "@/components/HeroSlug"
 import Footer from "@/components/Footer"
 import { getServicesByCategory } from "../../../../lib/servicesData"
 import Lowerfooter from "@/components/LowerFooter"
+
+// 🚀 CATEGORY PAGE SEO METADATA 🚀
+export async function generateMetadata({ params }) {
+  const { category } = await params
+
+  const categoryDisplayNames = {
+    "development-services": "Development Services",
+    "engineering-consulting": "Engineering & Consulting",
+    "technology-solutions": "Technology Solutions",
+    "business-growth": "Business Growth",
+    "team-augmentation-services": "Team Augmentation Services"
+  }
+
+  const displayName = categoryDisplayNames[category] || category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+
+  return {
+    title: `${displayName} - B2W Infotech Mumbai | Software Development Services`,
+    description: `Explore our ${displayName.toLowerCase()} in Mumbai. Professional software development, IT consulting, and technology solutions. ISO certified company with 15+ years experience.`,
+    keywords: `${displayName.toLowerCase()}, software development mumbai, IT services india, technology solutions andheri east`,
+    canonical: `https://www.b2winfotech.ai/services/category/${category}`,
+  }
+}
+
 export default async function CategoryPage({ params }) {
   const { category } = await params
 

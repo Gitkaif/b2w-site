@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Brain, Mail, Phone, MapPin, Linkedin, Twitter, Github, Globe, ArrowRight } from "lucide-react"
+import { Brain, Mail, Phone, MapPin, Twitter, Github, Globe, ArrowRight } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -148,7 +148,6 @@ export default function Footer() {
                 <p className="text-sm font-medium text-white">Follow Us</p>
                 <div className="flex space-x-3">
                   {[
-                    { icon: Linkedin, href: "https://www.linkedin.com/company/b2w-infotech", label: "LinkedIn" },
                     { icon: Twitter, href: "#", label: "Twitter" },
                     { icon: Github, href: "#", label: "GitHub" },
                     { icon: Globe, href: "/", label: "Website" }

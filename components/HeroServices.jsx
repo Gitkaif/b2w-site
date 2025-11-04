@@ -61,14 +61,14 @@ export default function HeroServices() {
       <div className="flex items-center min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] pt-8 sm:pt-10 md:pt-12 relative z-10">
         {/* Services Content - Taking full width and centered */}
         <div className="w-full text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
             Comprehensive{" "}
             <span className="text-white">
               AI-Powered
             </span>
             <br />
             Development Services
-          </h1>
+          </h2>
           
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto animate-fade-in-up opacity-0 animation-delay-400">
             Transform your business with our complete suite of AI-driven development services. From custom software and cloud solutions to generative AI and digital transformation - we deliver enterprise-grade solutions with 15+ years of proven expertise and 1200+ successful projects.

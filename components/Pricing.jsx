@@ -107,9 +107,9 @@ export default function PricingPlans() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-14 md:mb-16">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4 md:mb-6 leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4 md:mb-6 leading-tight">
             <span className="text-black">AI-Driven Development</span> Pricing Plans
-          </h1>
+          </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             From startups to enterprises, choose the perfect AI-powered development solution. Accelerate your digital transformation with our comprehensive full-stack development and AI integration services.
           </p>

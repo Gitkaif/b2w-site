@@ -70,14 +70,14 @@ export default function HeroSlug({ service }) {
         <div className="flex items-center min-h-[40vh] sm:min-h-[50vh] md:min-h-[60vh] pt-4 sm:pt-6 md:pt-8 relative z-10">
         {/* Service Content - Taking full width and centered */}
         <div className="w-full text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
             Expert{" "}
             <span className="text-white">
               {currentService.title}
             </span>
             <br />
             Solutions
-          </h1>
+          </h2>
           
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto animate-fade-in-up opacity-0 animation-delay-400">
             {currentService.longDescription || "Professional development services with cutting-edge technology, transparent processes, and rapid deployment tailored to your business needs."}

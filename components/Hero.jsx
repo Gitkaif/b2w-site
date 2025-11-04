@@ -76,13 +76,14 @@ export default function Hero() {
   <div className="flex items-center min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] pt-18 relative z-10">
         {/* Left Side Content - Taking about 70% width */}
         <div className="w-full lg:w-4/5 xl:w-3/4 text-left">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
+          <h1 className="sr-only">B2W Infotech - AI-Powered Software Development Company</h1>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
             AI-Powered Software
             <br />
             <span className="text-white">
               Development Excellence
             </span>
-          </h1>
+          </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 sm:mb-10 md:mb-12 max-w-3xl animate-fade-in-up opacity-0 animation-delay-400">
             Transform your business with 15+ years of AI-driven development expertise. 1200+ successful projects, ISO-certified processes, and cutting-edge solutions that deliver measurable ROI. From startups to enterprises - we turn your vision into reality.
           </p>

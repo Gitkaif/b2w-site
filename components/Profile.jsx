@@ -164,7 +164,7 @@ export default function ProfilePage() {
           }}></div>
         </div>
         <div className="text-center relative z-10">
-          <h1 className="text-2xl font-semibold text-gray-900 mb-4">Not authenticated</h1>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Not authenticated</h2>
           <button 
             onClick={() => router.push('/login')}
             className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded-lg transition-all duration-200 shadow-lg"
@@ -212,7 +212,7 @@ export default function ProfilePage() {
                     {imagePreview ? (
                       <img 
                         src={imagePreview}
-                        alt="Profile"
+                        alt={`${user.name}'s profile picture`}
                         className="w-full h-full object-cover"
                       />
                     ) : (
@@ -242,7 +242,7 @@ export default function ProfilePage() {
                 />
               </div>
 
-              <h1 className="text-2xl font-bold text-white mb-2">{user.name}</h1>
+              <h2 className="text-2xl font-bold text-white mb-2">{user.name}</h2>
               <p className="text-gray-100">{user.email}</p>
             </div>
           </div>

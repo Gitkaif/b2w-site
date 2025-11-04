@@ -462,12 +462,12 @@ const Header = () => {
             />
             <Brain className="h-7 w-7 text-blue-600 hidden" />
             <div>
-              <h1 
+              <div 
                 className="text-xl font-bold"
                 style={{ color: '#000000' }}
               >
                 B2W Infotech
-              </h1>
+              </div>
               <p 
                 className="text-sm"
                 style={{ color: '#6B7280' }}

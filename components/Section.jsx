@@ -41,9 +41,9 @@ const Section = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-16 lg:px-24 relative z-10">
         {/* Enlarged Title Section */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black">
             Revolutionize Your <span className="text-blue-800">IT Development Workflow</span>
-          </h1>
+          </h2>
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
             AI-Powered Full-Stack Development & Digital Transformation
           </p>

@@ -59,12 +59,12 @@ export default function AboutUsPage() {
 
         <div className="container mx-auto px-4 sm:px-6 relative z-20 h-full flex items-center justify-center">
           <div className="text-center w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center">
               ABOUT
               <span className="text-white">
                 US
               </span>
-            </h1>
+            </h2>
           </div>
         </div>
       </section>

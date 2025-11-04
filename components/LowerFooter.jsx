@@ -54,12 +54,12 @@ export default function CTASection() {
       <main className="relative z-10 flex items-center justify-center px-4 py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="text-center max-w-4xl mx-auto">
          
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white leading-tight">
             Ready to Revolutionize Your <br />
             <span className="text-white">
               Development Process?
             </span>
-          </h1>
+          </h2>
           
           <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-3xl mx-auto px-4 sm:px-0">
             Join 1200+ companies worldwide using our AI-powered development solutions for faster delivery, 

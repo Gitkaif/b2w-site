@@ -173,12 +173,12 @@ export default function FAQPage() {
 
         <div className="container mx-auto px-4 sm:px-6 relative z-20 h-full flex items-center justify-center">
           <div className="text-center w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-white text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-white text-center">
               FAQ &
               <span className="text-white">
                 SUPPORT
               </span>
-            </h1>
+            </h2>
            
           </div>
         </div>
