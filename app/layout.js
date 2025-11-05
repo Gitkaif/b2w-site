@@ -39,7 +39,7 @@ export const metadata = {
     // Industry keywords
     "healthcare software development", "fintech software solutions", "retail software development",
     "manufacturing software solutions", "enterprise software development",
-    // Developer hiring keywords
+    // Developer outsourcing keywords
     "java developers outsourcing", "python developers outsourcing", "react developers outsourcing", "nodejs developers outsourcing",
     ".NET developers outsourcing", "UI/UX designers outsourcing", "devops engineers outsourcing", "flutter developers outsourcing",
     // Competitive keywords
