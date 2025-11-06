@@ -48,7 +48,7 @@ export const metadata = {
     "best software company mumbai", "top IT company india", "leading software development firm",
     "award winning software company", "trusted IT services provider"
   ].join(", "),
-  authors: [{ name: "B2W Infotech", url: "https://b2winfotech.com" }],
+  authors: [{ name: "B2W Infotech", url: "https://www.b2winfotech.ai" }],
   creator: "B2W Infotech",
   publisher: "B2W Infotech",
   robots: {
