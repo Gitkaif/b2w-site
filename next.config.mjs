@@ -28,20 +28,5 @@ const nextConfig = {
   // 🎯 TRAILING SLASH CONSISTENCY
   trailingSlash: false, // Ensures URLs don't end with /
   
-  // 🚀 PERFORMANCE OPTIMIZATIONS FOR MOBILE SPEED
-  experimental: {
-    // optimizeCss: true, // Temporarily disabled due to build issue
-  },
-  
-  // 📱 IMAGE OPTIMIZATION FOR FASTER LOADING
-  images: {
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-  },
-  
-  // ⚡ COMPRESSION FOR FASTER LOADING
-  compress: true,
 };
-
 export default nextConfig;
