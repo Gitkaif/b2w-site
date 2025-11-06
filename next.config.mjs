@@ -28,9 +28,9 @@ const nextConfig = {
   // 🎯 TRAILING SLASH CONSISTENCY
   trailingSlash: false, // Ensures URLs don't end with /
   
-  // � PERFORMANCE OPTIMIZATIONS FOR MOBILE SPEED
+  // 🚀 PERFORMANCE OPTIMIZATIONS FOR MOBILE SPEED
   experimental: {
-    optimizeCss: true, // Better CSS performance
+    // optimizeCss: true, // Temporarily disabled due to build issue
   },
   
   // 📱 IMAGE OPTIMIZATION FOR FASTER LOADING
