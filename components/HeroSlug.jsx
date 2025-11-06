@@ -1,7 +1,8 @@
 "use client"
 import { useEffect, useState } from "react"
+import { getSEOMetadata } from "../lib/ultimateSEO"
 
-export default function HeroSlug({ service }) {
+export default function HeroSlug({ service, slug }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   
   // Background images for carousel
@@ -31,6 +32,10 @@ export default function HeroSlug({ service }) {
   }
 
   const currentService = service || defaultService
+  
+  // Get SEO H1 tag from ultimateSEO data
+  const seoData = getSEOMetadata(slug)
+  const h1Text = seoData?.h1 || `Expert ${currentService.title} Solutions`
 
   return (
     <div className="bg-black min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative overflow-hidden pt-16 sm:pt-20 md:pt-12">
@@ -70,14 +75,9 @@ export default function HeroSlug({ service }) {
         <div className="flex items-center min-h-[40vh] sm:min-h-[50vh] md:min-h-[60vh] pt-4 sm:pt-6 md:pt-8 relative z-10">
         {/* Service Content - Taking full width and centered */}
         <div className="w-full text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
-            Expert{" "}
-            <span className="text-white">
-              {currentService.title}
-            </span>
-            <br />
-            Solutions
-          </h2>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
+            {h1Text}
+          </h1>
           
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto animate-fade-in-up opacity-0 animation-delay-400">
             {currentService.longDescription || "Professional development services with cutting-edge technology, transparent processes, and rapid deployment tailored to your business needs."}

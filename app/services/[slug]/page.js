@@ -42,7 +42,7 @@ export default async function ServiceDetailPage({ params }) {
   return (
     <main>
       <Header />
-      <HeroSlug service={service} />
+      <HeroSlug service={service} slug={slug} />
       <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: "#FFFFFF" }}>
         {/* Background Effects */}
         <div className="absolute inset-0 z-0">

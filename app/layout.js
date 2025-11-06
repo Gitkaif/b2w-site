@@ -26,6 +26,8 @@ export const metadata = {
     // Location-based keywords
     "software development company mumbai", "IT company andheri east", "software company marol", "IT services mumbai",
     "web development company mumbai", "mobile app development mumbai", "software developers andheri",
+    "IT company gamdevi", "software development andheri east", "tech company marol mumbai", "IT services andheri",
+    "software development company maharashtra", "IT firm mumbai 400059", "technology company andheri east",
     // Service keywords
     "custom software development", "web development services", "mobile app development", "UI/UX design services",
     "IT staff augmentation", "software consulting", "QA testing services", "cloud devops services",
@@ -103,6 +105,10 @@ export default function RootLayout({ children }) {
         <meta name="geo.placename" content="Mumbai" />
         <meta name="geo.position" content="19.1136;72.8697" />
         <meta name="ICBM" content="19.1136, 72.8697" />
+        <meta name="DC.title" content="B2W Infotech - Software Development Company Mumbai" />
+        <meta name="DC.description" content="Leading software development company in Mumbai, Andheri East. ISO certified IT services, web development, mobile apps, AI solutions." />
+        <meta name="DC.subject" content="Software Development, IT Services, Mumbai" />
+        <meta name="DC.creator" content="B2W Infotech" />
         <link rel="icon" href="/favicon.ico" />
         
         {/* Open Graph Meta Tags */}
@@ -167,6 +173,18 @@ export default function RootLayout({ children }) {
                   "name": "Mumbai"
                 },
                 {
+                  "@type": "City", 
+                  "name": "Andheri East"
+                },
+                {
+                  "@type": "City",
+                  "name": "Marol"
+                },
+                {
+                  "@type": "State",
+                  "name": "Maharashtra"
+                },
+                {
                   "@type": "Country",
                   "name": "India"
                 },
@@ -174,7 +192,7 @@ export default function RootLayout({ children }) {
                   "@type": "Place",
                   "name": "Worldwide"
                 }
-              ]
+              ],
             })
           }}
         />
@@ -354,7 +372,42 @@ export default function RootLayout({ children }) {
                   "latitude": "19.1136",
                   "longitude": "72.8697"
                 },
-                "geoRadius": "50000"
+                "geoRadius": "50000",
+                "description": "Serving Mumbai, Maharashtra and clients worldwide"
+              },
+              "serviceArea": [
+                "Mumbai", "Andheri East", "Marol", "Gamdevi", "Maharashtra", "India", "Worldwide"
+              ]
+            })
+          }}
+        />
+        
+        {/* � PLACE SCHEMA FOR GOOGLE MAPS */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Place",
+              "name": "B2W Infotech Office",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "A-402, Polaris Building, Gamdevi, Marol",
+                "addressLocality": "Andheri East",
+                "addressRegion": "Mumbai",
+                "postalCode": "400059",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 19.1136,
+                "longitude": 72.8697
+              },
+              "telephone": "+91-7798001001",
+              "url": "https://www.b2winfotech.ai",
+              "containedInPlace": {
+                "@type": "City",
+                "name": "Mumbai"
               }
             })
           }}
