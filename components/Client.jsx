@@ -9,6 +9,12 @@ export default function ClientsSection() {
   const [isVisible, setIsVisible] = useState(true)
   const sectionRef = useRef(null)
 
+  // Custom Styles for Font
+  const customStyles = `
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+    .font-outfit { font-family: 'Outfit', sans-serif; }
+  `
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -96,24 +102,25 @@ export default function ClientsSection() {
   }
 
   return (
-    <section ref={sectionRef} className="py-16 px-4 md:px-8 lg:px-16" style={{backgroundColor: '#ecf1f2'}}>
+    <section ref={sectionRef} className="py-16 sm:py-20 px-4 md:px-8 lg:px-16 font-outfit" style={{backgroundColor: '#ecf1f2'}}>
+      <style>{customStyles}</style>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
                 Our Happy
                 <br />
                 Clients
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed max-w-md">
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-md">
                 They trust us and we keep giving them reasons to.
               </p>
             </div>
 
             <Link href="/about">
-              <button className="group flex items-center gap-3 border border-gray-300 px-6 py-3 rounded-md hover:border-blue-500 hover:bg-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              <button className="group flex items-center gap-3 border border-slate-300 px-6 py-3 rounded-md hover:border-[#1e40af] hover:bg-[#1e40af] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 aria-label="View all our clients and success stories">
                 <span className="text-black group-hover:text-white font-medium">View all Clients</span>
                 <ArrowRight className="w-5 h-5 text-black group-hover:text-white transition-colors" />
@@ -126,20 +133,20 @@ export default function ClientsSection() {
             {/* Navigation Arrows */}
             <button
               onClick={prevPage}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 w-12 h-12 bg-gray-200 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 w-12 h-12 bg-white hover:bg-[#1e40af] rounded-full flex items-center justify-center transition-all duration-300 group shadow-md border border-slate-200"
               disabled={totalPages <= 1}
               aria-label="View previous client logos"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-700 group-hover:text-white" />
+              <ChevronLeft className="w-6 h-6 text-slate-700 group-hover:text-white" />
             </button>
 
             <button
               onClick={nextPage}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 w-12 h-12 bg-gray-200 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 w-12 h-12 bg-white hover:bg-[#1e40af] rounded-full flex items-center justify-center transition-all duration-300 group shadow-md border border-slate-200"
               disabled={totalPages <= 1}
               aria-label="View next client logos"
             >
-              <ChevronRight className="w-6 h-6 text-gray-700 group-hover:text-white" />
+              <ChevronRight className="w-6 h-6 text-slate-700 group-hover:text-white" />
             </button>
 
             {/* Clients Grid */}
@@ -147,7 +154,7 @@ export default function ClientsSection() {
               {getCurrentPageLogos().map((logo, index) => (
                 <div
                   key={`${currentPage}-${index}`}
-                  className={`bg-white rounded-lg p-4 flex items-center justify-center h-24 hover:shadow-lg transition-all duration-500 hover:scale-105 hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  className={`bg-white rounded-lg p-4 flex items-center justify-center h-24 hover:shadow-lg transition-all duration-500 hover:scale-105 hover:-translate-y-1 border border-slate-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                   style={{
                     transitionDelay: isVisible ? `${(index * 100) + 600}ms` : '0ms'
                   }}
@@ -172,7 +179,7 @@ export default function ClientsSection() {
                   <button
                     key={index}
                     onClick={() => setCurrentPage(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${currentPage === index ? "bg-blue-500 scale-125" : "bg-gray-400 hover:bg-gray-500"}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${currentPage === index ? "bg-[#1e40af] scale-125" : "bg-slate-400 hover:bg-slate-500"}`}
                     aria-label={`Go to client page ${index + 1}`}
                   />
                 ))}

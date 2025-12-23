@@ -257,7 +257,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-black font-semibold mb-1 text-sm sm:text-base">Email Address</h3>
-                  <p className="text-gray-700 text-sm sm:text-base">b2winfotek@gmail.com</p>
+                  <p className="text-gray-700 text-sm sm:text-base">info@b2winfotech.ai</p>
                   <p className="text-xs sm:text-sm text-gray-600">We'll respond within 24 hours</p>
                 </div>
               </div>

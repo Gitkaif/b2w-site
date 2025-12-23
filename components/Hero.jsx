@@ -1,225 +1,132 @@
 "use client"
-import { useEffect, useState } from "react"
+
+import { Play, ArrowRight, CheckCircle2, Menu, BarChart3, TrendingUp, Rocket, DollarSign, MessageCircle } from "lucide-react"
 import Link from "next/link"
 
 export default function Hero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  
-  // Background images for carousel
-  const backgroundImages = [
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+  // Custom Styles for Font
+  const customStyles = `
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+    .font-outfit { font-family: 'Outfit', sans-serif; }
     
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
-  ]
-
-  // Auto-change background images every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % backgroundImages.length
-      )
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [backgroundImages.length])
-
-  // Functions to manually control background
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      (prevIndex + 1) % backgroundImages.length
-    )
-  }
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? backgroundImages.length - 1 : prevIndex - 1
-    )
-  }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll-left {
+      animation: scroll-left 20s linear infinite;
+    }
+    
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .animate-scroll-right {
+      animation: scroll-right 20s linear infinite;
+    }
+  `
 
   return (
-  <div className="bg-black min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pb-12 relative overflow-hidden">
+    <div className="bg-white min-h-screen font-outfit text-slate-900 selection:bg-[#1e40af] selection:text-white overflow-x-hidden flex flex-col">
+      <style>{customStyles}</style>
 
-      {/* Background Image Carousel */}
-      <div className="absolute inset-0">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 bg-center bg-no-repeat transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-40' : 'opacity-0'
-            }`}
-            style={{
-              backgroundImage: `url('${image}')`,
-              backgroundSize: "cover"
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Image Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-        {backgroundImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImageIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${
-              index === currentImageIndex 
-                ? 'bg-white' 
-                : 'bg-white/30 hover:bg-white/50'
-            }`}
-            aria-label={`Switch to background image ${index + 1}`}
-          />
-        ))}
-      </div>
       
-      {/* Hero Content - Left Side */}
-  <div className="flex items-center min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] pt-18 relative z-10">
-        {/* Left Side Content - Taking about 70% width */}
-        <div className="w-full lg:w-4/5 xl:w-3/4 text-left">
-          <h1 className="sr-only">B2W Infotech - AI-Powered Software Development Company</h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight animate-fade-in-up opacity-0 animation-delay-200">
-            AI-Powered Software
-            <br />
-            <span className="text-white">
-              Development Excellence
-            </span>
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 sm:mb-10 md:mb-12 max-w-3xl animate-fade-in-up opacity-0 animation-delay-400">
-            Transform your business with 15+ years of AI-driven development expertise. 1200+ successful projects, ISO-certified processes, and cutting-edge solutions that deliver measurable ROI. From startups to enterprises - we turn your vision into reality.
-          </p>
+      {/* --- Main Content Wrapper --- */}
+      <div className="flex-1 w-full max-w-[1160px] mx-auto px-3 py-12 lg:py-12 flex flex-col justify-center">
+        
+        {/* Content Grid (Text Left / Bento Right) */}
+        {/* CHANGED: items-center -> items-stretch to force equal height */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-stretch mb-15">
+          
+          {/* LEFT CONTENT: Text Only */}
+          {/* CHANGED: Added flex flex-col justify-center to center text in the stretched container */}
+          <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left flex flex-col justify-top">
+            <h1 className="text-5xl sm:text-6xl lg:text-[76px] font-bold leading-[1.1] tracking-tight mb-6 text-slate-900">
+              Revolutionize <br />
+              Your IT <br />
+              Outsourcing.
+            </h1>
+            
+            <p className="text-lg text-slate-500 mb-10 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
+              B2W Infotech stands as a premier AI-powered software development company, delivering transformative digital solutions backed by over 15 years of industry expertisse and a portfolio of 1,200+ successful projects worldwide.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12 md:mb-16 animate-fade-in-up opacity-0 animation-delay-600">
-            <Link
-              href="/services"
-              className="bg-white hover:bg-gray-100 text-black px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-200 font-medium shadow-lg text-sm sm:text-base text-center"
-              aria-label="Explore our comprehensive AI development services"
-            >
-              Explore AI Solutions
-            </Link>
-            <Link
-              href="/contact-form"
-              className="bg-black/20 backdrop-blur-xl border border-white/30 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-white/20 hover:scale-105 transition-all duration-200 font-medium text-sm sm:text-base text-center"
-              aria-label="Get free consultation from our AI development experts"
-            >
-              Free AI Consultation
-            </Link>
+            <div className="flex flex-row items-center justify-center lg:justify-start gap-6">
+              <button className="bg-[#1e40af] hover:bg-blue-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl shadow-blue-200 flex items-center gap-2 transform hover:-translate-y-1">
+                Get Started <ArrowRight size={20} />
+              </button>
+              
+              <button className="flex items-center gap-3 text-slate-600 font-bold text-lg hover:text-[#1e40af] transition-colors group">
+                <div className="w-10 h-10 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:border-[#1e40af] bg-white transition-colors">
+                  <Play size={14} className="fill-slate-600 group-hover:fill-[#1e40af] ml-0.5 transition-colors" />
+                </div>
+                View Case Study
+              </button>
+            </div>
           </div>
+
+          {/* RIGHT CONTENT: Image */}
+          <div className="relative w-full h-full flex flex-col min-h-[450px]">
+            <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl border border-slate-100">
+              <img 
+                src="/images/back.png" 
+                alt="Hero" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
         </div>
-        {/* Right side remains empty for background images to show */}
-        <div className="hidden lg:block w-1/5 xl:w-1/4"></div>
+
+        {/* --- LOGOS: SEPARATE ROW AT BOTTOM --- */}
+        <div className="w-full pt-15 border-t border-slate-50 mt-auto overflow-hidden space-y-6">
+            {/* First Row - Left to Right */}
+            <div className="flex animate-scroll-left whitespace-nowrap">
+                <span className="text-xl font-bold text-slate-900 mx-8">Google</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Microsoft</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Amazon</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Meta</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Apple</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Tesla</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Netflix</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Spotify</span>
+                
+                {/* Duplicate for seamless loop */}
+                <span className="text-xl font-bold text-slate-900 mx-8">Google</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Microsoft</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Amazon</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Meta</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Apple</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Tesla</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Netflix</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Spotify</span>
+            </div>
+            
+            {/* Second Row - Right to Left */}
+            <div className="flex animate-scroll-right whitespace-nowrap">
+                <span className="text-xl font-bold text-slate-900 mx-8">IBM</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Oracle</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Samsung</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Intel</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Adobe</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Salesforce</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Cisco</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Uber</span>
+                
+                {/* Duplicate for seamless loop */}
+                <span className="text-xl font-bold text-slate-900 mx-8">IBM</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Oracle</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Samsung</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Intel</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Adobe</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Salesforce</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Cisco</span>
+                <span className="text-xl font-bold text-slate-900 mx-8">Uber</span>
+            </div>
+        </div>
+
       </div>
 
-      {/* Company Certifications & Expertise */}
-      <div className="hidden sm:block mt-16 pb-8 w-full animate-fade-in-up opacity-0 animation-delay-1000 relative z-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-16 text-center">Trusted by Industry Leaders Across Sectors</h2>
-        <div className="overflow-hidden">
-          {/* First Row - Moving Right */}
-          <div className="flex animate-scroll-right mb-8 whitespace-nowrap">
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">FINTECH</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">HEALTHCARE</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">RETAIL</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">ISO Certified</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">STARTUPS</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">ENTERPRISE</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">AI/ML</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">Cloud Native</span>
-            </div>
-            {/* Duplicate for seamless loop */}
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">FINTECH</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">HEALTHCARE</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">RETAIL</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">ISO Certified</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">STARTUPS</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">ENTERPRISE</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">AI/ML</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">Cloud Native</span>
-            </div>
-          </div>
-
-          {/* Second Row - Moving Left */}
-          <div className="flex animate-scroll-left whitespace-nowrap">
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">BLOCKCHAIN</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">DevOps</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">CYBERSECURITY</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">DIGITAL TRANSFORMATION</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">MOBILE APPS</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">Web Development</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">CLOUD SOLUTIONS</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">AUTOMATION</span>
-            </div>
-            {/* Duplicate for seamless loop */}
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">BLOCKCHAIN</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">DevOps</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">CYBERSECURITY</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">DIGITAL TRANSFORMATION</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">MOBILE APPS</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white italic text-lg sm:text-xl">Web Development</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">CLOUD SOLUTIONS</span>
-            </div>
-            <div className="flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px] lg:min-w-[250px] px-4 sm:px-6 md:px-8 hover:scale-110 transition-all duration-300 cursor-pointer">
-              <span className="font-bold text-white text-sm sm:text-base md:text-lg lg:text-xl">AUTOMATION</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

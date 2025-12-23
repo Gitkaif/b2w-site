@@ -128,7 +128,7 @@ export default function Footer() {
                     href="mailto:b2winfotek@gmail.com"
                     className="text-sm text-gray-300 hover:text-blue-400 transition-colors duration-200"
                   >
-                    b2winfotek@gmail.com
+                    info@b2winfotech.ai
                   </a>
                 </div>
 

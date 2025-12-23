@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import Link from 'next/link'
 
 export default function FaqSection() {
   const [openFaq, setOpenFaq] = useState(null)
@@ -62,39 +61,45 @@ export default function FaqSection() {
     setOpenFaq(openFaq === id ? null : id)
   }
 
-  // Split FAQs into two columns for larger screens
   const leftColumnFAQs = faqs.filter((_, index) => index % 2 === 0)
   const rightColumnFAQs = faqs.filter((_, index) => index % 2 === 1)
 
+  // Font Style: Plus Jakarta Sans (Matches the heavy, geometric look of the image)
+  const customStyles = `
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+  `
+
   const FAQItem = ({ faq }) => (
-    <div className="mb-4 sm:mb-6">
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:shadow-md transition-all duration-300 h-auto">
+    <div className="mb-4 sm:mb-6 group">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-[#1e40af] hover:shadow-md transition-all duration-300">
         <button
           onClick={() => toggleFaq(faq.id)}
-          className="w-full px-4 sm:px-6 py-6 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset min-h-[80px]"
+          className="w-full px-5 sm:px-6 py-6 flex items-center justify-between text-left focus:outline-none min-h-[84px]"
           aria-expanded={openFaq === faq.id}
-          aria-controls={`faq-answer-${faq.id}`}
-          aria-label={`Toggle answer for: ${faq.question}`}
         >
-          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 leading-6 pr-2 sm:pr-4 flex-1">
+          {/* Font applied here: Bold and Tight */}
+          <h3 className={`text-[17px] font-bold leading-tight pr-4 flex-1 transition-colors duration-300
+            ${openFaq === faq.id ? 'text-[#1e40af]' : 'text-slate-900 group-hover:text-[#1e40af]'}`}>
             {faq.question}
           </h3>
-          <div className="flex-shrink-0 ml-2 sm:ml-4">
+          
+          <div className="flex-shrink-0 ml-4">
             {openFaq === faq.id ? (
-              <ChevronUp className="w-5 h-5 text-blue-600" />
+              <ChevronUp className="w-5 h-5 text-[#1e40af]" strokeWidth={3} />
             ) : (
-              <ChevronDown className="w-5 h-5 text-gray-400" />
+              <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-[#1e40af]" strokeWidth={3} />
             )}
           </div>
         </button>
         
-        <div className={`transition-all duration-300 ease-in-out ${
-          openFaq === faq.id 
-            ? 'max-h-[200px] opacity-100' 
-            : 'max-h-0 opacity-0 overflow-hidden'
-        }`} id={`faq-answer-${faq.id}`} aria-hidden={openFaq !== faq.id}>
-          <div className="px-4 sm:px-6 pb-6">
-            <p className="text-gray-600 leading-relaxed text-sm sm:text-base min-h-[60px]">
+        <div 
+          className={`transition-all duration-300 ease-in-out overflow-hidden ${
+            openFaq === faq.id ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="px-5 sm:px-6 pb-6">
+            <p className="text-slate-600 leading-relaxed text-[15px] font-medium">
               {faq.answer}
             </p>
           </div>
@@ -104,25 +109,34 @@ export default function FaqSection() {
   )
 
   return (
-    <section className="py-16 sm:py-20" style={{backgroundColor: '#ecf1f2'}}>
+    <section className="py-20 sm:py-24 font-jakarta" style={{backgroundColor: '#ecf1f2'}}>
+      <style>{customStyles}</style>
+      
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header Section */}
+        
+        {/* Header Section - Original Left Aligned Structure */}
         <div className="mb-12 sm:mb-16">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span className="text-blue-600 text-sm font-medium">Questions? Look here</span>
+            <div className="w-2.5 h-2.5 bg-[#1e40af] rounded-full"></div>
+            <span className="text-[#1e40af] text-sm font-bold uppercase tracking-wide">
+              Questions? Look here
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Frequently asked<br />questions
+          
+          {/* Font Weight 800 to match the "1,200+ Companies" Thickness */}
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1]">
+            Frequently asked<br />
+            <span className="text-[#1e40af]">questions</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
+          
+          <p className="text-lg text-slate-600 max-w-3xl leading-relaxed font-medium">
             Get answers to common questions about our AI-powered development, full-stack solutions, 
             and comprehensive IT outsourcing services.
           </p>
         </div>
 
-        {/* FAQ Grid */}
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+        {/* FAQ Grid - Original 2-Column Structure */}
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           {/* Left Column */}
           <div>
             {leftColumnFAQs.map((faq) => (

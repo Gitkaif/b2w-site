@@ -1,130 +1,130 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import { Check } from "lucide-react"
 
-const Section = () => {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef(null)
+import React from 'react';
+import { ArrowUpRight, MoveRight } from 'lucide-react';
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
-    }
-  }, [])
-
-  const platformFeatures = [
-    "Web Development Excellence",
-    "Mobile App Innovation",
-    "UI/UX Design Mastery",
-    "IT Staff Augmentation",
-    "Cloud & DevOps Solutions"
-  ];
+export default function ITServicesLandingPage() {
+  const customStyles = `
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+  `
 
   return (
-    <div ref={sectionRef} className="py-20 relative overflow-hidden" style={{backgroundColor: '#FFFFFF'}}>
+    <div className="min-h-screen bg-white p-4 sm:p-6 md:p-8 text-slate-900" style={{ fontFamily: 'Outfit, sans-serif' }}>
+      <style>{customStyles}</style>
+      <div className="max-w-[1280px] mx-auto flex flex-col gap-4 sm:gap-6">
+        
+        {/* ================= HERO SECTION ================= */}
+        {/* Changed bg color to a soft tech blue-grey to match IT context */}
+        <div className="relative bg-[#F1F5F9] rounded-[32px] sm:rounded-[40px] md:rounded-[48px] overflow-hidden min-h-[450px] sm:min-h-[400px] md:h-[450px] flex flex-col md:flex-row p-6 sm:p-8 md:p-10">
+          
+          {/* Left Content */}
+          <div className="w-full md:w-[50%] p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center z-20 order-1 relative">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.1] mb-4 sm:mb-5 md:mb-6 tracking-tight">
+              Revolutionize Your <br className="hidden sm:block" />
+              <span className="text-[#1e40af]">IT Development</span> <br className="hidden sm:block" />
+              Workflow
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base md:text-base max-w-md mb-5 sm:mb-6 md:mb-7 font-medium leading-relaxed">
+              AI-Powered Full-Stack Development & Digital Transformation. Transform your business with our comprehensive suite of services.
+            </p>
+            
+            <button className="bg-[#1e40af] text-white px-6 sm:px-7 py-2.5 sm:py-3 rounded-full font-bold inline-flex items-center gap-2 w-fit hover:bg-blue-800 transition-colors shadow-lg text-sm">
+              Start Transformation <ArrowUpRight className="w-4 h-4" />
+            </button>
+          </div>
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-16 lg:px-24 relative z-10">
-        {/* Enlarged Title Section */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black">
-            Revolutionize Your <span className="text-blue-800">IT Development Workflow</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-            AI-Powered Full-Stack Development & Digital Transformation
-          </p>
+          {/* Right Stats & Buttons */}
+          <div className="w-full md:w-[50%] p-4 sm:p-6 md:p-8 flex flex-col justify-center items-center relative z-20 order-2">
+            <img 
+              src="/images/hi.gif" 
+              alt="IT Development" 
+              className="w-[85%] max-w-[350px] h-auto object-contain"
+            />
+          </div>
         </div>
 
-        <div className="relative">
-          {/* First Feature Section: Comprehensive Automation - Smaller Size */}
-          <div className={`relative z-1 flex flex-col lg:flex-row items-center h-auto lg:h-[30rem] mb-5 p-4 sm:p-6 rounded-3xl overflow-hidden transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'} shadow-lg border-2 border-gray-300 shadow-gray-400/30 hover:shadow-gray-400/50 hover:border-gray-400 mt-5 bg-white`}>
-
-            <div className="absolute inset-0 pointer-events-none">
-              <img
-                className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                alt="AI-Powered Development Platform"
-              />
-              <div className="absolute inset-0 bg-black/40"></div>
+        {/* ================= BOTTOM GRID SECTION ================= */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            
+            {/* Card 1: Web Development */}
+            <div className="col-span-1 relative h-[350px] sm:h-[380px] md:h-[400px] rounded-[32px] sm:rounded-[40px] overflow-hidden bg-[#F1F5F9] p-6 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-shadow">
+                <div>
+                    <span className="bg-blue-100 text-[#1e40af] px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-4 inline-block">
+                        Excellence
+                    </span>
+                    <h3 className="text-xl sm:text-2xl text-slate-900 font-bold leading-tight mb-3">
+                        Web Development
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-7 font-medium">
+                        Custom web applications built with modern technologies for exceptional user experiences.
+                    </p>
+                </div>
+                <button className="w-9 h-9 sm:w-10 sm:h-10 bg-[#1e40af] rounded-full flex items-center justify-center hover:scale-110 transition-transform self-end">
+                    <ArrowUpRight size={18} className="text-white" />
+                </button>
             </div>
 
-            <div className="relative z-1 w-full lg:w-auto lg:max-w-[16rem] xl:max-w-[18rem] 2xl:max-w-[20rem] lg:ml-auto p-3 sm:p-4 md:p-5 lg:p-6 rounded-lg lg:rounded-xl">
-              <h4 className="text-base sm:text-lg md:text-xl lg:text-xl font-bold mb-2 sm:mb-3 md:mb-4 text-white">Complete Software Development Solutions</h4>
-              <p className="text-sm sm:text-sm md:text-base mb-3 sm:mb-4 md:mb-5 text-gray-100 leading-snug">
-                Transform your business with our comprehensive suite of development services including web, mobile, cloud, and AI solutions
-              </p>
-              <ul className="space-y-1 sm:space-y-1.5 md:space-y-2">
-                {platformFeatures.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start py-1 sm:py-1.5"
-                  >
-                    <Check 
-                      className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 mr-2 sm:mr-2.5 mt-0.5 text-blue-600 flex-shrink-0" 
-                    />
-                    <span className="text-sm sm:text-sm md:text-base text-white leading-tight">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Two-Column Feature Showcase - Same Height for Both Boxes */}
-          <div className={`relative z-1 grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 mt-5 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            {/* Full-Stack Development */}
-            <div className="relative h-80 sm:h-96 md:h-[32rem] rounded-3xl overflow-hidden transition-all duration-300 shadow-lg border-2 border-gray-300 shadow-gray-400/30 hover:shadow-gray-400/50 hover:border-gray-400 bg-white hover:-translate-y-2">
-              <div className="absolute inset-0">
-                <img
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                  className="w-full h-full object-cover"
-                  alt="Full-Stack Development"
-                />
-              </div>
-
-              <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 bg-gradient-to-b from-black/0 to-black/90">
-                <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Web Development</h4>
-                <p className="text-sm sm:text-base mb-4 text-gray-100">
-                  Custom web applications built with modern technologies for exceptional user experiences and business growth
-                </p>
-              </div>
+            {/* Card 2: Mobile App */}
+            <div className="col-span-1 flex flex-col h-full">
+                 
+                 <div className="flex-1 relative rounded-[32px] sm:rounded-[40px] overflow-hidden bg-[#F1F5F9] p-6 sm:p-8 flex flex-col justify-between min-h-[250px] hover:shadow-lg transition-shadow">
+                    <div>
+                        <span className="bg-blue-100 text-[#1e40af] px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-4 inline-block">
+                            Innovation
+                        </span>
+                        <h3 className="text-xl sm:text-2xl text-slate-900 font-bold leading-tight mb-3">
+                            Mobile Apps
+                        </h3>
+                        <p className="text-slate-600 text-sm leading-7 font-medium">
+                            Native and cross-platform mobile apps for all devices.
+                        </p>
+                    </div>
+                    <button className="w-9 h-9 sm:w-10 sm:h-10 bg-[#1e40af] rounded-full flex items-center justify-center hover:scale-110 transition-transform self-end">
+                        <ArrowUpRight size={18} className="text-white" />
+                    </button>
+                 </div>
             </div>
 
-            {/* Digital Transformation & AI/ML */}
-            <div className="h-80 sm:h-96 md:h-[32rem] bg-white rounded-3xl overflow-hidden transition-all duration-300 shadow-lg border-2 border-gray-300 shadow-gray-400/30 hover:shadow-gray-400/50 hover:border-gray-400 hover:-translate-y-2">
-              <div className="py-4 sm:py-6 md:py-8 px-4 sm:px-6 xl:px-8">
-                <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-black">Mobile Application Development</h4>
-                <p className="text-sm sm:text-base mb-4 sm:mb-6 text-gray-700">
-                  Native and cross-platform mobile apps that deliver exceptional user experiences across all devices
-                </p>
-              </div>
+            {/* Card 3: AI & Chatbots (Wide) */}
+            <div className="col-span-1 sm:col-span-2 md:col-span-2 relative h-[400px] sm:h-[380px] md:h-[400px] rounded-[32px] sm:rounded-[40px] overflow-hidden bg-[#F1F5F9] p-6 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-shadow">
+                
+                <div className="flex justify-between items-start">
+                    <div>
+                        <p className="text-2xl sm:text-3xl font-bold text-[#1e40af]">98%</p>
+                        <p className="text-slate-600 text-xs sm:text-sm font-medium">Client Satisfaction</p>
+                    </div>
+                    <button className="flex items-center gap-2 text-slate-900 hover:text-[#1e40af] text-xs sm:text-sm font-bold">
+                        <span className="hidden sm:inline">View Case Study</span>
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#1e40af] rounded-full flex items-center justify-center text-white">
+                            <ArrowUpRight size={16}/>
+                        </div>
+                    </button>
+                </div>
 
-              <div className="relative h-32 sm:h-40 md:h-[18rem] bg-gray-100 rounded-xl overflow-hidden mx-2 sm:mx-4 mt-2 sm:mt-4">
-                <img
-                  src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                  className="w-full h-full object-cover"
-                  alt="Mobile Application Development"
-                />
-              </div>
+                {/* Bottom Content */}
+                <div>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl text-slate-900 font-bold mb-4 sm:mb-6 max-w-lg leading-tight">
+                        AI & Intelligent Chatbots for Automation
+                    </h3>
+                    <p className="text-slate-600 text-sm mb-4 max-w-md leading-7 font-medium">
+                        Enhance user experiences and automate customer interactions with intelligent AI solutions and conversational chatbots.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row gap-2 max-w-md">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email for a quote" 
+                            className="flex-1 bg-white border border-slate-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1e40af] text-xs sm:text-sm font-medium"
+                        />
+                        <button className="bg-[#1e40af] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold hover:bg-blue-800 transition-colors whitespace-nowrap">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
+
         </div>
       </div>
     </div>
   );
-};
-
-export default Section;
+}

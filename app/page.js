@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Section from "@/components/Section";
-import Pricing from "@/components/Pricing";
+import Process from "@/components/process";
 import Testimonials from "@/components/Testimonial";
 import LowerSection from "@/components/LowerFooter";
 import Footer from "@/components/Footer";
@@ -25,6 +25,7 @@ export default function Home() {
       <About />
       <Services />
       <Section />
+      <Process />
       <WhyChoose />
       <Collaboration />
       <Client />

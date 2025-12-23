@@ -427,7 +427,7 @@ const Header = () => {
               <span>📞 +91 7798001001</span>
             </div>
             <div className="hidden sm:flex items-center gap-1 sm:gap-2">
-              <span>✉️ b2winfotek@gmail.com</span>
+              <span>✉️ info@b2winfotech.ai</span>
             </div>
           </div>
           <div className="text-center sm:text-right">
