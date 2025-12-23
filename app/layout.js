@@ -21,7 +21,7 @@ export const metadata = {
     default: "B2W Infotech | #1 AI Software Development Company India | ISO Certified",
     template: "%s | B2W Infotech - Leading IT Company"
   },
-  description: "🏆 #1 Rated Software Development Company in India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Free Consultation - Call +91-7798001001",
+  description: "🏆 #1 Rated Software Development Company in India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Free Consultation - Call +91-9004987847",
   keywords: [
     // Location-based keywords
     "software development company mumbai", "IT company andheri east", "software company marol", "IT services mumbai",
@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.b2winfotech.ai" />
         <meta property="og:title" content="B2W Infotech | #1 AI Software Development Company India | ISO Certified" />
-        <meta property="og:description" content="🏆 #1 Rated Software Development Company in India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Free Consultation - Call +91-7798001001" />
+        <meta property="og:description" content="🏆 #1 Rated Software Development Company in India. ISO 27001 & ISO 9001 Certified. 15+ Years Experience | 1200+ Projects | AI Development, Web Apps, Mobile Apps, Cloud Computing. Free Consultation - Call +91-9004987847" />
         <meta property="og:image" content="https://www.b2winfotech.ai/images/logo.jpg" />
         <meta property="og:site_name" content="B2W Infotech" />
         <meta property="og:locale" content="en_IN" />
@@ -132,7 +132,7 @@ export default function RootLayout({ children }) {
               "image": "https://www.b2winfotech.ai/images/logo.jpg",
               "logo": "https://www.b2winfotech.ai/images/logo.jpg",
               "url": "https://www.b2winfotech.ai",
-              "telephone": "+917798001001",
+              "telephone": "+919004987847",
               "priceRange": "$$",
               "address": {
                 "@type": "PostalAddress",
@@ -219,7 +219,7 @@ export default function RootLayout({ children }) {
               "contactPoint": [
                 {
                   "@type": "ContactPoint",
-                  "telephone": "+91-7798001001",
+                  "telephone": "+91-9004987847",
                   "contactType": "Customer Service",
                   "email": "b2winfotek@gmail.com",
                   "areaServed": "Worldwide",
@@ -355,7 +355,7 @@ export default function RootLayout({ children }) {
               "name": "B2W Infotech - Software Development Services",
               "image": "https://www.b2winfotech.ai/images/logo.jpg",
               "url": "https://www.b2winfotech.ai",
-              "telephone": "+917798001001",
+              "telephone": "+919004987847",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "A-402, Polaris Building, Gamdevi, Marol",
@@ -403,7 +403,7 @@ export default function RootLayout({ children }) {
                 "latitude": 19.1136,
                 "longitude": 72.8697
               },
-              "telephone": "+91-7798001001",
+              "telephone": "+91-9004987847",
               "url": "https://www.b2winfotech.ai",
               "containedInPlace": {
                 "@type": "City",

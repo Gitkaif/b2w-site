@@ -238,7 +238,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-black font-semibold mb-1 text-sm sm:text-base">Phone Number</h3>
-                  <p className="text-gray-700 text-sm sm:text-base">+91 7798001001</p>
+                  <p className="text-gray-700 text-sm sm:text-base">+91 9004987847</p>
                   <p className="text-xs sm:text-sm text-gray-600">24/7 AI development & IT outsourcing support</p>
                 </div>
               </div>
@@ -271,7 +271,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-black font-semibold mb-1 text-sm sm:text-base">WhatsApp</h3>
-                  <p className="text-gray-700 text-sm sm:text-base">+91 7798001001</p>
+                  <p className="text-gray-700 text-sm sm:text-base">+91 9004987847</p>
                   <p className="text-xs sm:text-sm text-gray-600">Instant AI solutions & project consultations</p>
                 </div>
               </div>

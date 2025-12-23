@@ -51,7 +51,7 @@ When complete, your Google search results will look exactly like this:
 📍 Address: A-402, Polaris Building, Gamdevi, Marol, 
            Andheri East, Mumbai, Maharashtra 400059
 🚗 Get there: 🚇 25 mins · 🚌 18 mins
-📞 Phone: +91-7798001001
+📞 Phone: +91-9004987847
 🕒 Hours: Open · Closes 6 PM ✅
 ```
 
@@ -149,7 +149,7 @@ verification: {
 ```
 🏢 Business name: B2W Infotech
 📍 Address: A-402, Polaris Building, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059
-📞 Phone: +91-7798001001
+📞 Phone: +91-9004987847
 🌐 Website: https://b2winfotech.ai
 🏷️ Category: "Software Company" or "IT Services and IT Consulting"
 ```
@@ -584,7 +584,7 @@ When all steps are complete (2-6 months), you will achieve:
 ### **Contact Information:**
 ```
 📧 Email: b2winfotek@gmail.com
-📞 Phone: +91-7798001001
+📞 Phone: +91-9004987847
 🏢 Address: A-402, Polaris Building, Gamdevi, Marol, 
            Andheri East, Mumbai, Maharashtra 400059
 ```

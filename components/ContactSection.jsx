@@ -99,7 +99,7 @@ export default function ContactSection() {
               <div>
                 <p className="font-bold text-slate-900 mb-2 text-lg">Phone</p>
                 <div className="space-y-1">
-                    <p className="hover:text-[#1e40af] transition-colors cursor-pointer font-bold text-slate-800">+91 7798001001</p>
+                    <p className="hover:text-[#1e40af] transition-colors cursor-pointer font-bold text-slate-800">+91 9004987847</p>
                 </div>
                 <p className="font-bold text-slate-900 mb-2 text-lg">Email</p>
                 <div className="space-y-1">

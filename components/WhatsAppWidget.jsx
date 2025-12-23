@@ -55,7 +55,7 @@ export default function WhatsAppWidget() {
   })
   const { position, handleMouseDown, isDragging } = useDraggable()
 
-  const whatsappNumber = "919892439222" 
+  const whatsappNumber = "919004987847" 
   // Prevent hydration mismatch
   useEffect(() => {
     setIsMounted(true)

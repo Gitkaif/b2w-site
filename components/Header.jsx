@@ -424,7 +424,7 @@ const Header = () => {
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-1 sm:gap-2">
-              <span>📞 +91 7798001001</span>
+              <span>📞 +91 9004987847</span>
             </div>
             <div className="hidden sm:flex items-center gap-1 sm:gap-2">
               <span>✉️ info@b2winfotech.ai</span>

@@ -86,7 +86,7 @@
 2. Add complete business information:
    - Name: B2W Infotech
    - Address: A-402, Polaris Building, Gamdevi, Marol, Andheri East, Mumbai 400059
-   - Phone: +91-7798001001
+   - Phone: +91-9004987847
    - Email: b2winfotek@gmail.com
    - Website: https://b2winfotech.com
    - Category: Software Company, IT Services
@@ -310,7 +310,7 @@ verification: {
 
 For SEO optimization support:
 - Email: b2winfotek@gmail.com
-- Phone: +91-7798001001
+- Phone: +91-9004987847
 - Address: A-402, Polaris Building, Andheri East, Mumbai 400059
 
 ---
