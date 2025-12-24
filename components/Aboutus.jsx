@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
 import Testimonials from "@/components/Testimonial"
 
 // Button component
@@ -43,9 +41,6 @@ export default function AboutUsPage() {
   return (
     <div className="bg-white min-h-screen font-outfit text-slate-900 selection:bg-[#1e40af] selection:text-white overflow-x-hidden flex flex-col">
       <style>{customStyles}</style>
-
-      {/* Header */}
-      <Header />
 
       {/* Hero Section - Similar to Hero.jsx */}
       <div className="flex-1 w-full max-w-[1160px] mx-auto px-3 py-12 lg:py-12 flex flex-col justify-center">
@@ -369,9 +364,6 @@ export default function AboutUsPage() {
       <section className="relative z-10 bg-white">
         <Testimonials />
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   )
 }
