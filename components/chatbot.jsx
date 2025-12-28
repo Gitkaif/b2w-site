@@ -204,7 +204,8 @@ Always end responses by asking how we can specifically help with their IT or bus
           "X-Title": "Nebula AI Assistant"
         },
         body: JSON.stringify({
-          model: "google/gemma-2-9b-it:free", // Working free model
+          // model: "google/gemma-2-9b-it:free", // Working free model
+          model: "openai/gpt-3.5-turbo",
           messages: conversationHistory,
           temperature: 0.7,
           max_tokens: 1024,
