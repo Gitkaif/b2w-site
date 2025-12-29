@@ -40,7 +40,7 @@ export default function Footer() {
 
               <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-semibold">1200+</span>
-                <span>Projects Completed Worldwide</span>
+                <span>Projects Completed Worldwide.</span>
               </div>
             </div>
 
